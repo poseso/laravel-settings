@@ -51,8 +51,6 @@
       "Poseso\\Settings\\Tests\\": "tests"
     }
   },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
   "scripts": {
     "test": "phpunit --colors=always"
   },
