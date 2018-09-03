@@ -21,20 +21,13 @@
     "illuminate/contracts": "~5.5.0|~5.6.0",
     "illuminate/database": "~5.5.0|~5.6.0",
     "illuminate/events": "~5.5.0|~5.6.0",
-    "illuminate/support": "~5.5.0|~5.6.0",
-    "poseso/laravel-settings": "dev-master"
+    "illuminate/support": "~5.5.0|~5.6.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",
     "orchestra/testbench": "^3.6",
     "phpunit/phpunit": "^6.1|^7.0"
   },
-  "repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/poseso/laravel-settings"
-    }
-  ],
   "autoload": {
     "files": [
       "src/helpers.php"
@@ -58,6 +51,8 @@
       "Poseso\\Settings\\Tests\\": "tests"
     }
   },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
   "scripts": {
     "test": "phpunit --colors=always"
   },
