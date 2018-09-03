@@ -1,10 +1,10 @@
 <?php
 
-namespace Rudnev\Settings\Stores;
+namespace Poseso\Settings\Stores;
 
 use Illuminate\Support\Arr;
 use Illuminate\Database\ConnectionInterface;
-use Rudnev\Settings\Contracts\StoreContract;
+use Poseso\Settings\Contracts\StoreContract;
 
 class DatabaseStore implements StoreContract
 {

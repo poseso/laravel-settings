@@ -1,24 +1,24 @@
 <?php
 
-namespace Rudnev\Settings\Cache;
+namespace Poseso\Settings\Cache;
 
-use Rudnev\Settings\Events\PropertyRemoved;
-use Rudnev\Settings\Events\PropertyWritten;
-use Rudnev\Settings\Events\AllSettingsRemoved;
+use Poseso\Settings\Events\PropertyRemoved;
+use Poseso\Settings\Events\PropertyWritten;
+use Poseso\Settings\Events\AllSettingsRemoved;
 
 class EventSubscriber
 {
     /**
      * The cache instance.
      *
-     * @var \Rudnev\Settings\Cache\Cache
+     * @var \Poseso\Settings\Cache\Cache
      */
     protected $cache;
 
     /**
      * EventListener constructor.
      *
-     * @param \Rudnev\Settings\Cache\Cache $cache
+     * @param \Poseso\Settings\Cache\Cache $cache
      * @return void
      */
     public function __construct(Cache $cache)
@@ -29,7 +29,7 @@ class EventSubscriber
     /**
      * The PropertyWritten event handler.
      *
-     * @param \Rudnev\Settings\Events\PropertyWritten $event
+     * @param \Poseso\Settings\Events\PropertyWritten $event
      * @return void
      */
     public function propertyWritten(PropertyWritten $event)
@@ -42,7 +42,7 @@ class EventSubscriber
     /**
      * The PropertyRemoved event handler.
      *
-     * @param \Rudnev\Settings\Events\PropertyRemoved $event
+     * @param \Poseso\Settings\Events\PropertyRemoved $event
      * @return void
      */
     public function propertyRemoved(PropertyRemoved $event)
@@ -55,7 +55,7 @@ class EventSubscriber
     /**
      * The AllSettingsRemoved event handler.
      *
-     * @param \Rudnev\Settings\Events\AllSettingsRemoved $event
+     * @param \Poseso\Settings\Events\AllSettingsRemoved $event
      * @return void
      */
     public function allSettingsRemoved(AllSettingsRemoved $event)

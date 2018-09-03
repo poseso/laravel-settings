@@ -1,24 +1,24 @@
 <?php
 
-namespace Rudnev\Settings;
+namespace Poseso\Settings;
 
 use ArrayAccess;
 use Illuminate\Support\Arr;
-use Rudnev\Settings\Cache\Cache;
-use Rudnev\Settings\Events\StoreEvent;
+use Poseso\Settings\Cache\Cache;
+use Poseso\Settings\Events\StoreEvent;
 use Illuminate\Support\Traits\Macroable;
-use Rudnev\Settings\Events\PropertyMissed;
-use Rudnev\Settings\Events\PropertyRemoved;
-use Rudnev\Settings\Events\PropertyWritten;
-use Rudnev\Settings\Contracts\StoreContract;
-use Rudnev\Settings\Events\PropertyReceived;
-use Rudnev\Settings\Events\AllSettingsRemoved;
-use Rudnev\Settings\Events\AllSettingsReceived;
-use Rudnev\Settings\Contracts\RepositoryContract;
+use Poseso\Settings\Events\PropertyMissed;
+use Poseso\Settings\Events\PropertyRemoved;
+use Poseso\Settings\Events\PropertyWritten;
+use Poseso\Settings\Contracts\StoreContract;
+use Poseso\Settings\Events\PropertyReceived;
+use Poseso\Settings\Events\AllSettingsRemoved;
+use Poseso\Settings\Events\AllSettingsReceived;
+use Poseso\Settings\Contracts\RepositoryContract;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 
 /**
- * @mixin \Rudnev\Settings\Contracts\StoreContract
+ * @mixin \Poseso\Settings\Contracts\StoreContract
  */
 class Repository implements ArrayAccess, RepositoryContract
 {
@@ -29,14 +29,14 @@ class Repository implements ArrayAccess, RepositoryContract
     /**
      * The settings store instance.
      *
-     * @var \Rudnev\Settings\Contracts\StoreContract
+     * @var \Poseso\Settings\Contracts\StoreContract
      */
     protected $store;
 
     /**
      * The cache instance.
      *
-     * @var \Rudnev\Settings\Cache\Cache
+     * @var \Poseso\Settings\Cache\Cache
      */
     protected $cache;
 
@@ -64,7 +64,7 @@ class Repository implements ArrayAccess, RepositoryContract
     /**
      * Create a new settings repository instance.
      *
-     * @param  \Rudnev\Settings\Contracts\StoreContract $store
+     * @param  \Poseso\Settings\Contracts\StoreContract $store
      * @return void
      */
     public function __construct(StoreContract $store)
@@ -75,7 +75,7 @@ class Repository implements ArrayAccess, RepositoryContract
     /**
      * Get the settings store instance.
      *
-     * @return \Rudnev\Settings\Contracts\StoreContract
+     * @return \Poseso\Settings\Contracts\StoreContract
      */
     public function getStore()
     {
@@ -85,7 +85,7 @@ class Repository implements ArrayAccess, RepositoryContract
     /**
      * Set the settings store implementation.
      *
-     * @param \Rudnev\Settings\Contracts\StoreContract $store
+     * @param \Poseso\Settings\Contracts\StoreContract $store
      * @return void
      */
     public function setStore(StoreContract $store)
@@ -96,7 +96,7 @@ class Repository implements ArrayAccess, RepositoryContract
     /**
      * Get the cache instance.
      *
-     * @return \Rudnev\Settings\Cache\Cache
+     * @return \Poseso\Settings\Cache\Cache
      */
     public function getCache()
     {
@@ -106,7 +106,7 @@ class Repository implements ArrayAccess, RepositoryContract
     /**
      * Set the cache instance.
      *
-     * @param \Rudnev\Settings\Cache\Cache $cache
+     * @param \Poseso\Settings\Cache\Cache $cache
      * @return void
      */
     public function setCache(Cache $cache)
@@ -409,7 +409,7 @@ class Repository implements ArrayAccess, RepositoryContract
      *
      * @param mixed $scope
      * @param array $options
-     * @return \Rudnev\Settings\Contracts\RepositoryContract
+     * @return \Poseso\Settings\Contracts\RepositoryContract
      */
     public function scope($scope, $options = null): RepositoryContract
     {
@@ -427,7 +427,7 @@ class Repository implements ArrayAccess, RepositoryContract
     /**
      * Get the cache if it's enabled, otherwise the settings store.
      *
-     * @return \Rudnev\Settings\Contracts\StoreContract
+     * @return \Poseso\Settings\Contracts\StoreContract
      */
     protected function data()
     {

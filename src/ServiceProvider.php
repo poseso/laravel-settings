@@ -1,9 +1,9 @@
 <?php
 
-namespace Rudnev\Settings;
+namespace Poseso\Settings;
 
-use Rudnev\Settings\Contracts\FactoryContract;
-use Rudnev\Settings\Contracts\RepositoryContract;
+use Poseso\Settings\Contracts\FactoryContract;
+use Poseso\Settings\Contracts\RepositoryContract;
 use Illuminate\Support\ServiceProvider as BaseProvider;
 
 class ServiceProvider extends BaseProvider

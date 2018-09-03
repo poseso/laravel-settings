@@ -1,6 +1,6 @@
 <?php
 
-namespace Rudnev\Settings\Traits;
+namespace Poseso\Settings\Traits;
 
 use ArrayObject;
 
@@ -9,7 +9,7 @@ trait HasSettings
     /**
      * The settings repository instance.
      *
-     * @var \Rudnev\Settings\Contracts\RepositoryContract
+     * @var \Poseso\Settings\Contracts\RepositoryContract
      */
     protected $settingsRepo;
 
@@ -125,7 +125,7 @@ trait HasSettings
     /**
      * @param null $key
      * @param null $default
-     * @return mixed|\Rudnev\Settings\Contracts\RepositoryContract
+     * @return mixed|\Poseso\Settings\Contracts\RepositoryContract
      */
     public function settings($key = null, $default = null)
     {

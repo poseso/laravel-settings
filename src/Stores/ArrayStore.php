@@ -1,9 +1,9 @@
 <?php
 
-namespace Rudnev\Settings\Stores;
+namespace Poseso\Settings\Stores;
 
 use Illuminate\Support\Arr;
-use Rudnev\Settings\Contracts\StoreContract;
+use Poseso\Settings\Contracts\StoreContract;
 
 class ArrayStore implements StoreContract
 {
@@ -136,7 +136,7 @@ class ArrayStore implements StoreContract
      * Set the scope.
      *
      * @param $scope
-     * @return \Rudnev\Settings\Contracts\StoreContract
+     * @return \Poseso\Settings\Contracts\StoreContract
      */
     public function scope($scope): StoreContract
     {

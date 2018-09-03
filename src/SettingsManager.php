@@ -1,22 +1,22 @@
 <?php
 
-namespace Rudnev\Settings;
+namespace Poseso\Settings;
 
 use Closure;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use Rudnev\Settings\Cache\Cache;
+use Poseso\Settings\Cache\Cache;
 use Illuminate\Events\Dispatcher;
-use Rudnev\Settings\Stores\ArrayStore;
-use Rudnev\Settings\Stores\DatabaseStore;
-use Rudnev\Settings\Cache\EventSubscriber;
-use Rudnev\Settings\Contracts\StoreContract;
-use Rudnev\Settings\Contracts\FactoryContract;
+use Poseso\Settings\Stores\ArrayStore;
+use Poseso\Settings\Stores\DatabaseStore;
+use Poseso\Settings\Cache\EventSubscriber;
+use Poseso\Settings\Contracts\StoreContract;
+use Poseso\Settings\Contracts\FactoryContract;
 use Illuminate\Contracts\Cache\Factory as CacheFactoryContract;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 
 /**
- * @mixin \Rudnev\Settings\Contracts\RepositoryContract
+ * @mixin \Poseso\Settings\Contracts\RepositoryContract
  */
 class SettingsManager implements FactoryContract
 {
@@ -134,7 +134,7 @@ class SettingsManager implements FactoryContract
      *
      * @param string $name
      * @param  array $config
-     * @return \Rudnev\Settings\Repository
+     * @return \Poseso\Settings\Repository
      */
     protected function createArrayStore($name, array $config)
     {
@@ -150,7 +150,7 @@ class SettingsManager implements FactoryContract
      *
      * @param string $name
      * @param  array $config
-     * @return \Rudnev\Settings\Repository
+     * @return \Poseso\Settings\Repository
      */
     protected function createDatabaseStore($name, array $config)
     {
@@ -168,9 +168,9 @@ class SettingsManager implements FactoryContract
     /**
      * Create a new settings repository with the given implementation.
      *
-     * @param  \Rudnev\Settings\Contracts\StoreContract $store
-     * @param  \Rudnev\Settings\Cache\Cache
-     * @return \Rudnev\Settings\Repository
+     * @param  \Poseso\Settings\Contracts\StoreContract $store
+     * @param  \Poseso\Settings\Cache\Cache
+     * @return \Poseso\Settings\Repository
      */
     public function repository(StoreContract $store, Cache $cache = null)
     {
@@ -186,7 +186,7 @@ class SettingsManager implements FactoryContract
     /**
      * Set the event dispatcher instance to the settings repository.
      *
-     * @param \Rudnev\Settings\Repository $repository
+     * @param \Poseso\Settings\Repository $repository
      * @return void
      */
     protected function addEventDispatcher(Repository $repository)
@@ -201,8 +201,8 @@ class SettingsManager implements FactoryContract
     /**
      * Set the cache instance to the settings repository.
      *
-     * @param \Rudnev\Settings\Repository $repository
-     * @param  \Rudnev\Settings\Cache\Cache $cache
+     * @param \Poseso\Settings\Repository $repository
+     * @param  \Poseso\Settings\Cache\Cache $cache
      * @return void
      */
     protected function addCache(Repository $repository, Cache $cache = null)
@@ -218,7 +218,7 @@ class SettingsManager implements FactoryContract
      * Make a cache instance.
      *
      * @param array $config
-     * @return \Rudnev\Settings\Cache\Cache|null
+     * @return \Poseso\Settings\Cache\Cache|null
      */
     protected function makeCache(array $config = [])
     {

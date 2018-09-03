@@ -1,11 +1,11 @@
 <?php
 
-namespace Rudnev\Settings\Cache;
+namespace Poseso\Settings\Cache;
 
 use Closure;
-use Rudnev\Settings\Stores\ArrayStore;
+use Poseso\Settings\Stores\ArrayStore;
 use Illuminate\Contracts\Cache\Repository;
-use Rudnev\Settings\Contracts\StoreContract;
+use Poseso\Settings\Contracts\StoreContract;
 
 class Cache extends ArrayStore implements StoreContract
 {

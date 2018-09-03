@@ -1,6 +1,6 @@
 <?php
 
-namespace Rudnev\Settings\Events;
+namespace Poseso\Settings\Events;
 
 class AllSettingsReceived extends StoreEvent
 {
