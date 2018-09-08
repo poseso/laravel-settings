@@ -132,7 +132,7 @@ trait HasSettings
         if (is_null($this->settingsRepo)) {
             $store = $this->settingsConfig['store'] ?? null;
 
-            $this->settingsRepo = settings()->store($store)->scope($this, $this->settingsConfig ?? null);
+            $this->settingsRepo = app('settings')->store($store)->scope($this, $this->settingsConfig ?? null);
         }
 
         if (is_null($key)) {

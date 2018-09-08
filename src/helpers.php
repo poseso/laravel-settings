@@ -12,14 +12,12 @@ if (! function_exists('settings')) {
      */
     function settings($key = null, $default = null)
     {
-        if (is_null($key)) {
-            return app('settings');
+        $usuario = auth()->user()->settings($key);
+        if ($usuario != null) {
+            return $usuario;
+        } else {
+            $global = app('settings')->get($key);
+            return $global;
         }
-
-        if (is_iterable($key)) {
-            return app('settings')->set($key);
-        }
-
-        return app('settings')->get($key, $default);
     }
 }
