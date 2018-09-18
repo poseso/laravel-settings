@@ -199,8 +199,6 @@ class Repository implements ArrayAccess, RepositoryContract
         } else {
             $this->default[$key] = $value;
         }
-
-        $this->default[$key] = $value;
     }
 
     /**
