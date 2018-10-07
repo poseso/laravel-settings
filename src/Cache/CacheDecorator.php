@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Poseso\Settings\Cache;
 
+use Illuminate\Support\Arr;
 use Poseso\Settings\Scopes\Scope;
 use Poseso\Settings\Contracts\StoreContract;
 use Poseso\Settings\Cache\L1\FirstLevelCache;
@@ -161,11 +162,11 @@ class CacheDecorator implements StoreContract
     {
         $region = $this->getScope()->hash;
         return $this->firstLevelCache->region($region)->get($key, function ($key) use ($region) {
-            $root = explode('.', $key)[0];
+            $root = $this->getKeyRoot($key);
             $result = $this->secondLevelCache->region($region)->get($root, function ($key) {
                 return $this->store->get($key);
             });
-            return array_get([$root => $result], $key);
+            return Arr::get([$root => $result], $key);
         });
     }
     /**
@@ -181,12 +182,10 @@ class CacheDecorator implements StoreContract
         $region = $this->getScope()->hash;
         return $this->firstLevelCache->region($region)->getMultiple($keys, function ($keys) use ($region) {
             $return = [];
-            $roots = array_map(function ($key) {
-                return explode('.', $key)[0];
-            }, $keys);
+            $roots = $this->getKeyRoot($keys);
             $data = $this->secondLevelCache->region($region)->getMultiple($roots);
             foreach ($keys as $key) {
-                $return[$key] = array_get($data, $key);
+                $return[$key] = Arr::get($data, $key);
             }
             if ($notFound = array_keys($return, null, true)) {
                 $notFound = $this->store->getMultiple($notFound);
@@ -219,33 +218,36 @@ class CacheDecorator implements StoreContract
     public function set(string $key, $value): void
     {
         $this->store->set($key, $value);
-        $region = $this->getScope()->hash;
-        $this->firstLevelCache->region($region)->put($key, $value);
-        $root = explode('.', $key)[0];
-        $data = [$root => $this->secondLevelCache->region($region)->get($root)];
-        array_set($data, $key, $value);
-        $this->secondLevelCache->region($region)->put($root, $data[$root]);
+        $regionName = $this->getScope()->hash;
+        $this->firstLevelCache->region($regionName)->put($key, $value);
+        $region = $this->secondLevelCache->region($regionName);
+        $root = $this->getKeyRoot($key);
+        $region->lock($root, function () use (&$region, &$root, &$key, &$value) {
+            $data = [$root => $region->get($root)];
+            Arr::set($data, $key, $value);
+            $region->put($root, $data[$root]);
+        });
     }
     /**
      * Store multiple items in the settings store.
      *
      * @param  iterable $values
      * @return void
-     * @throws \Psr\SimpleCache\InvalidArgumentException
      */
     public function setMultiple(iterable $values): void
     {
         $this->store->setMultiple($values);
-        $region = $this->getScope()->hash;
-        $this->firstLevelCache->region($region)->putMultiple($values);
-        $keys = array_map(function ($key) {
-            return explode('.', $key)[0];
-        }, array_keys($values));
-        $data = $this->secondLevelCache->region($region)->getMultiple($keys);
+        $regionName = $this->getScope()->hash;
+        $this->firstLevelCache->region($regionName)->putMultiple($values);
+        $region = $this->secondLevelCache->region($regionName);
         foreach ($values as $key => $value) {
-            array_set($data, $key, $value);
+            $root = $this->getKeyRoot($key);
+            $region->lock($root, function () use (&$region, &$root, &$key, &$value) {
+                $data = [$root => $region->get($root)];
+                Arr::set($data, $key, $value);
+                $region->put($root, $data[$root]);
+            });
         }
-        $this->secondLevelCache->region($region)->putMultiple($data);
     }
     /**
      * Remove an item from the settings store.
@@ -258,7 +260,7 @@ class CacheDecorator implements StoreContract
         $result = $this->store->forget($key);
         if ($result) {
             $this->firstLevelCache->region($this->getScope()->hash)->forget($key);
-            $this->secondLevelCache->region($this->getScope()->hash)->forget(explode('.', $key)[0]);
+            $this->secondLevelCache->region($this->getScope()->hash)->forget($this->getKeyRoot($key));
         }
         return $result;
     }
@@ -273,10 +275,7 @@ class CacheDecorator implements StoreContract
         $result = $this->store->forgetMultiple($keys);
         if ($result) {
             $this->firstLevelCache->region($this->getScope()->hash)->forgetMultiple($keys);
-            array_walk($keys, function (&$key) {
-                $key = explode('.', $key)[0];
-            });
-            $this->secondLevelCache->region($this->getScope()->hash)->forgetMultiple($keys);
+            $this->secondLevelCache->region($this->getScope()->hash)->forgetMultiple($this->getKeyRoot($keys));
         }
         return $result;
     }
@@ -303,5 +302,22 @@ class CacheDecorator implements StoreContract
     public function scope(Scope $scope): StoreContract
     {
         return new static($this->store->scope($scope), $this->firstLevelCache, $this->secondLevelCache);
+    }
+    /**
+     * Get the root of key.
+     *
+     * @param string|iterable
+     * @return mixed
+     */
+    protected function getKeyRoot($key)
+    {
+        if (is_iterable($key)) {
+            $roots = [];
+            foreach ($key as $k) {
+                $roots[] = explode('.', $k)[0];
+            }
+            return array_unique($roots);
+        }
+        return explode('.', $key)[0];
     }
 }
