@@ -8,8 +8,8 @@ use Illuminate\Support\Arr;
 use Poseso\Settings\Scopes\Scope;
 use Poseso\Settings\Contracts\StoreContract;
 use Poseso\Settings\Cache\L1\FirstLevelCache;
-use Poseso\Settings\Cache\L2\SecondLevelCache;
 use Poseso\Settings\Cache\L1\FirstLevelRegion;
+use Poseso\Settings\Cache\L2\SecondLevelCache;
 use Poseso\Settings\Cache\L2\SecondLevelRegion;
 
 class CacheDecorator implements StoreContract
@@ -180,11 +180,15 @@ class CacheDecorator implements StoreContract
      */
     public function get(string $key)
     {
-        return $this->getFirstLevelRegion()->get($key, function ($key) {
+        $firstLevel = $this->getFirstLevelRegion();
+        return $firstLevel->get($key, function ($key) use ($firstLevel) {
             $root = $this->getKeyRoot($key);
             $result = $this->getSecondLevelRegion()->get($root, function ($key) {
                 return $this->store->get($key);
             });
+            if (! $firstLevel->has($root)) {
+                $firstLevel->put($root, $result);
+            }
             return Arr::get([$root => $result], $key);
         });
     }
@@ -198,10 +202,16 @@ class CacheDecorator implements StoreContract
      */
     public function getMultiple(iterable $keys): array
     {
-        return $this->getFirstLevelRegion()->getMultiple($keys, function ($keys) {
+        $firstLevel = $this->getFirstLevelRegion();
+        return $firstLevel->getMultiple($keys, function ($keys) use ($firstLevel) {
             $return = [];
             $roots = $this->getKeyRoot($keys);
             $data = $this->getSecondLevelRegion()->getMultiple($roots);
+            foreach ($data as $root => $value) {
+                if (! $firstLevel->has($root)) {
+                    $firstLevel->put($root, $value);
+                }
+            }
             foreach ($keys as $key) {
                 $return[$key] = Arr::get($data, $key);
             }
