@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="Minor changes">
+    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="minor fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contracts/StoreContract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/StoreContract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Stores/DatabaseStore.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stores/DatabaseStore.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +18,8 @@
     <session id="-2014439464">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="16" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="2" />
@@ -27,23 +27,23 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="19" />
           <entry key="md" value="1" />
-          <entry key="php" value="1249" />
-          <entry key="txt" value="45" />
+          <entry key="php" value="1277" />
+          <entry key="txt" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="19" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="1249" />
-          <entry key="PLAIN_TEXT" value="45" />
+          <entry key="PHP" value="1277" />
+          <entry key="PLAIN_TEXT" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -78,17 +78,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Structures/Container.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
+            <state relative-caret-position="2277">
               <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Contracts/StoreContract.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="451">
-              <caret line="107" column="1" lean-forward="true" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
+              <caret line="107" column="1" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -147,11 +147,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="381">
+              <caret line="388" column="1" lean-forward="true" selection-start-line="388" selection-start-column="1" selection-end-line="388" selection-end-column="1" />
+              <folding>
+                <element signature="e#65#92#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,7 +207,6 @@
         <option value="$PROJECT_DIR$/tests/Unit/SettingsManagerTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Stores/ArrayStoreTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Stores/DatabaseStoreTest.php" />
-        <option value="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
         <option value="$PROJECT_DIR$/src/Commands/ClearCache.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php" />
@@ -214,6 +216,7 @@
         <option value="$PROJECT_DIR$/src/Cache/CacheDecorator.php" />
         <option value="$PROJECT_DIR$/src/Structures/Container.php" />
         <option value="$PROJECT_DIR$/src/Contracts/StoreContract.php" />
+        <option value="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
       </list>
     </option>
   </component>
@@ -264,7 +267,7 @@
               <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Contracts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Stores" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -361,7 +364,8 @@
       <workItem from="1537714627741" duration="598000" />
       <workItem from="1538934471591" duration="36000" />
       <workItem from="1538935521168" duration="7278000" />
-      <workItem from="1538955307177" duration="81000" />
+      <workItem from="1538955307177" duration="154000" />
+      <workItem from="1538955654304" duration="87000" />
     </task>
     <task id="LOCAL-00001" summary="Cache and Scopes improvements.">
       <created>1538939439264</created>
@@ -475,17 +479,24 @@
       <option name="project" value="LOCAL" />
       <updated>1538955039003</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="minor fix">
+      <created>1538955402967</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1538955402967</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22321000" />
+    <option name="totallyTimeSpent" value="22481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="22" width="1920" height="1058" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2603834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2630458" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -522,7 +533,6 @@
     <MESSAGE value="cache bug fix" />
     <MESSAGE value="strict types &amp; cache bug fix" />
     <MESSAGE value="null values will no longer be cached" />
-    <MESSAGE value="minor fix" />
     <MESSAGE value="CacheDecorator:has() fix" />
     <MESSAGE value="Changes in the CacheDecorator class" />
     <MESSAGE value="tests fix" />
@@ -533,7 +543,8 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="Cache optimization" />
     <MESSAGE value="Minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
+    <MESSAGE value="minor fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fix" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Facades/SettingsFacade.php">
@@ -767,6 +778,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Structures/Container.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2277">
+          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3036">
@@ -809,24 +827,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Structures/Container.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Contracts/StoreContract.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
-          <caret line="107" column="1" lean-forward="true" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
+          <caret line="107" column="1" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="388" column="1" lean-forward="true" selection-start-line="388" selection-start-column="1" selection-end-line="388" selection-end-column="1" />
+          <folding>
+            <element signature="e#65#92#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Poseso\Settings\Stores;
 
 use Illuminate\Support\Arr;
+use Poseso\Settings\Scopes\Scope;
+use Poseso\Settings\Scopes\EntityScope;
 use Illuminate\Database\ConnectionInterface;
 use Poseso\Settings\Contracts\StoreContract;
-use Poseso\Settings\Scopes\EntityScope;
-use Poseso\Settings\Scopes\Scope;
 
 class DatabaseStore implements StoreContract
 {
@@ -17,7 +17,7 @@ class DatabaseStore implements StoreContract
      *
      * @var string
      */
-    protected $name;
+    protected $name = 'database';
     /**
      * The database connection instance.
      *
@@ -106,16 +106,21 @@ class DatabaseStore implements StoreContract
         $this->scope = new Scope();
     }
     /**
-     * {@inheritdoc}
+     * Get the settings store name.
+     *
+     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
     /**
-     * {@inheritdoc}
+     * Set the settings store name.
+     *
+     * @param string $name
+     * @return void
      */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -134,7 +139,7 @@ class DatabaseStore implements StoreContract
      * @param \Poseso\Settings\Scopes\Scope $scope
      * @return void
      */
-    public function setScope(Scope $scope)
+    public function setScope(Scope $scope): void
     {
         if ($scope instanceof EntityScope) {
             $this->table = $this->morphTable;
@@ -144,9 +149,12 @@ class DatabaseStore implements StoreContract
         $this->scope = $scope;
     }
     /**
-     * {@inheritdoc}
+     * Determine if an item exists in the settings store.
+     *
+     * @param string $key
+     * @return bool
      */
-    public function has($key)
+    public function has(string $key): bool
     {
         $keys = explode('.', $key);
         if (count($keys) > 1) {
@@ -155,9 +163,12 @@ class DatabaseStore implements StoreContract
         return $this->table()->where($this->keyColumn, '=', $key)->whereNotNull($this->valueColumn)->exists();
     }
     /**
-     * {@inheritdoc}
+     * Retrieve an item from the settings store by key.
+     *
+     * @param string $key
+     * @return mixed
      */
-    public function get($key)
+    public function get(string $key)
     {
         $keys = explode('.', $key);
         if (count($keys) > 1) {
@@ -173,9 +184,14 @@ class DatabaseStore implements StoreContract
         return $this->unpack($item->{$this->valueColumn});
     }
     /**
-     * {@inheritdoc}
+     * Retrieve multiple items from the settings store by key.
+     *
+     * Items not found in the settings store will have a null value.
+     *
+     * @param iterable $keys
+     * @return array
      */
-    public function getMultiple(iterable $keys)
+    public function getMultiple(iterable $keys): array
     {
         $return = [];
         $data = [];
@@ -205,9 +221,11 @@ class DatabaseStore implements StoreContract
         return $return;
     }
     /**
-     * {@inheritdoc}
+     * Get all of the settings items.
+     *
+     * @return array
      */
-    public function all()
+    public function all(): array
     {
         $return = [];
         $result = $this->table()->get();
@@ -217,9 +235,13 @@ class DatabaseStore implements StoreContract
         return $return;
     }
     /**
-     * {@inheritdoc}
+     * Store an item in the settings store.
+     *
+     * @param  string $key
+     * @param  mixed $value
+     * @return void
      */
-    public function set($key, $value)
+    public function set(string $key, $value): void
     {
         list($key, $value) = $this->prepareIfNested($key, $value);
         $value = $this->pack($value);
@@ -233,9 +255,12 @@ class DatabaseStore implements StoreContract
         $this->table()->updateOrInsert([$this->keyColumn => $key], $values);
     }
     /**
-     * {@inheritdoc}
+     * Store multiple items in the settings store.
+     *
+     * @param  iterable $values
+     * @return void
      */
-    public function setMultiple(iterable $values)
+    public function setMultiple(iterable $values): void
     {
         foreach ($values as $key => $value) {
             list($key, $value) = $this->prepareIfNested($key, $value);
@@ -250,7 +275,7 @@ class DatabaseStore implements StoreContract
      * @param mixed $value
      * @return array
      */
-    protected function prepareIfNested($key, $value)
+    protected function prepareIfNested(string $key, $value): array
     {
         $keys = explode('.', $key);
         if (count($keys) > 1) {
@@ -262,9 +287,12 @@ class DatabaseStore implements StoreContract
         return [$key, $value];
     }
     /**
-     * {@inheritdoc}
+     * Remove an item from the settings store.
+     *
+     * @param  string $key
+     * @return bool
      */
-    public function forget($key)
+    public function forget(string $key): bool
     {
         $keys = explode('.', $key);
         if (count($keys) > 1) {
@@ -281,9 +309,12 @@ class DatabaseStore implements StoreContract
         return true;
     }
     /**
-     * {@inheritdoc}
+     * Remove multiple items from the settings store.
+     *
+     * @param  iterable $keys
+     * @return bool
      */
-    public function forgetMultiple(iterable $keys)
+    public function forgetMultiple(iterable $keys): bool
     {
         foreach ($keys as $key) {
             $this->forget($key);
@@ -291,14 +322,19 @@ class DatabaseStore implements StoreContract
         return true;
     }
     /**
-     * {@inheritdoc}
+     * Remove all items from the settings store.
+     *
+     * @return bool
      */
-    public function flush()
+    public function flush(): bool
     {
         return (bool) $this->table()->delete();
     }
     /**
-     * {@inheritdoc}
+     * Set the scope.
+     *
+     * @param \Poseso\Settings\Scopes\Scope $scope
+     * @return \Poseso\Settings\Contracts\StoreContract
      */
     public function scope(Scope $scope): StoreContract
     {
