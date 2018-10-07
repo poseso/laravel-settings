@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Cache\L2;
+namespace Poseso\Settings\Cache\L2;
 
 use Illuminate\Contracts\Cache\Repository;
 
@@ -111,10 +111,20 @@ class SecondLevelCache
     public function region(string $name): SecondLevelRegion
     {
         if (empty(static::$regions[$this->prefix][$name])) {
-            $fullName = sprintf('%s[%s].%s', $this->prefix, $this->getVersion(), $name);
-            static::$regions[$this->prefix][$name] = new SecondLevelRegion($fullName, $this->store, $this->defaultLifetime);
+            static::$regions[$this->prefix][$name] = $this->createRegion($name);
         }
         return static::$regions[$this->prefix][$name];
+    }
+    /**
+     * Create a cache region instance.
+     *
+     * @param string $name
+     * @return \Poseso\Settings\Cache\L2\SecondLevelRegion
+     */
+    protected function createRegion(string $name): SecondLevelRegion
+    {
+        $name = sprintf('%s[%s].%s', $this->prefix, $this->getVersion(), $name);
+        return new SecondLevelRegion($name, $this->store, $this->defaultLifetime);
     }
     /**
      * Remove all items from the cache.
