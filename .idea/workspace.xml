@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="null values will no longer be cached">
+    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="CacheDecorator:has() fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" afterDir="false" />
     </list>
@@ -34,16 +34,16 @@
         <counts>
           <entry key="json" value="19" />
           <entry key="md" value="1" />
-          <entry key="php" value="788" />
-          <entry key="txt" value="13" />
+          <entry key="php" value="880" />
+          <entry key="txt" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="19" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="788" />
-          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="PHP" value="880" />
+          <entry key="PLAIN_TEXT" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,10 +105,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="167" column="104" selection-start-line="167" selection-start-column="104" selection-end-line="167" selection-end-column="104" />
+            <state relative-caret-position="475">
+              <caret line="306" column="1" lean-forward="true" selection-start-line="306" selection-start-column="1" selection-end-line="306" selection-end-column="1" />
               <folding>
-                <element signature="e#62#90#0#PHP" expanded="true" />
+                <element signature="e#67#100#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -374,7 +374,7 @@
       <workItem from="1537564053405" duration="601000" />
       <workItem from="1537714627741" duration="598000" />
       <workItem from="1538934471591" duration="36000" />
-      <workItem from="1538935521168" duration="5198000" />
+      <workItem from="1538935521168" duration="5473000" />
     </task>
     <task id="LOCAL-00001" summary="Cache and Scopes improvements.">
       <created>1538939439264</created>
@@ -404,11 +404,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538953060354</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="minor fix">
+      <created>1538953120932</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1538953120932</updated>
+    </task>
+    <task id="LOCAL-00006" summary="CacheDecorator:has() fix">
+      <created>1538953264204</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1538953264204</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20160000" />
+    <option name="totallyTimeSpent" value="20435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="22" width="1920" height="1058" extended-state="6" />
@@ -451,7 +465,9 @@
     <MESSAGE value="cache bug fix" />
     <MESSAGE value="strict types &amp; cache bug fix" />
     <MESSAGE value="null values will no longer be cached" />
-    <option name="LAST_COMMIT_MESSAGE" value="null values will no longer be cached" />
+    <MESSAGE value="minor fix" />
+    <MESSAGE value="CacheDecorator:has() fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="CacheDecorator:has() fix" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Facades/SettingsFacade.php">
@@ -768,10 +784,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="167" column="104" selection-start-line="167" selection-start-column="104" selection-end-line="167" selection-end-column="104" />
+        <state relative-caret-position="475">
+          <caret line="306" column="1" lean-forward="true" selection-start-line="306" selection-start-column="1" selection-end-line="306" selection-end-column="1" />
           <folding>
-            <element signature="e#62#90#0#PHP" expanded="true" />
+            <element signature="e#67#100#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
