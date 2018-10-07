@@ -3,6 +3,7 @@
 namespace Poseso\Settings\Tests\Unit\Stores;
 
 use PHPUnit\Framework\TestCase;
+use Poseso\Settings\Scopes\Scope;
 use Poseso\Settings\Stores\ArrayStore;
 
 class ArrayStoreTest extends TestCase
@@ -12,6 +13,13 @@ class ArrayStoreTest extends TestCase
         $store = new ArrayStore;
         $store->setName('foo-bar');
         $this->assertEquals('foo-bar', $store->getName());
+    }
+    public function testScopeCanBeSetAndRetrieved()
+    {
+        $store = new ArrayStore;
+        $scope = new Scope('foo');
+        $store->setScope($scope);
+        $this->assertEquals(spl_object_id($scope), spl_object_id($store->getScope()));
     }
     public function testHasMethod()
     {
@@ -31,14 +39,14 @@ class ArrayStoreTest extends TestCase
         $store = new ArrayStore;
         $store->set('foo', 'bar');
         $store->setMultiple([
-            'fizz'  => 'buz',
-            'quz'   => 'baz',
+            'fizz' => 'buz',
+            'quz' => 'baz',
         ]);
         $this->assertEquals([
-            'foo'   => 'bar',
-            'fizz'  => 'buz',
-            'quz'   => 'baz',
-            'norf'  => null,
+            'foo' => 'bar',
+            'fizz' => 'buz',
+            'quz' => 'baz',
+            'norf' => null,
         ], $store->getMultiple(['foo', 'fizz', 'quz', 'norf']));
         // Dot syntax:
         $store = new ArrayStore;
@@ -51,13 +59,13 @@ class ArrayStoreTest extends TestCase
         $this->assertEquals(['products' => ['desk' => ['price' => 300]]], $store->all());
         $store = new ArrayStore;
         $store->setMultiple([
-            'foo'  => 'bar',
+            'foo' => 'bar',
             'qwe.asd' => 'zxc',
         ]);
         $this->assertEquals([
-            'foo'   => 'bar',
-            'qwe'  => ['asd' => 'zxc'],
-            'norf'  => null,
+            'foo' => 'bar',
+            'qwe' => ['asd' => 'zxc'],
+            'norf' => null,
         ], $store->getMultiple(['foo', 'qwe', 'norf']));
     }
     public function testAllItemsCanBeRetrieved()
@@ -77,7 +85,7 @@ class ArrayStoreTest extends TestCase
     public function testMultipleItemsCanBeRemoved()
     {
         $store = new ArrayStore;
-        $store->set('foo', 'bar', 'qux');
+        $store->setMultiple(['foo' => 1, 'bar' => 2, 'qux' => 3]);
         $store->forgetMultiple(['foo', 'qux']);
         $this->assertNull($store->get('foo'));
         $this->assertNull($store->get('qux'));
@@ -95,6 +103,6 @@ class ArrayStoreTest extends TestCase
     public function testScope()
     {
         $store = new ArrayStore();
-        $store->scope('foo');
+        $store->scope(new Scope('foo'));
     }
 }

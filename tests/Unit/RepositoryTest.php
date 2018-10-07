@@ -4,10 +4,8 @@ namespace Poseso\Settings\Tests\Unit;
 
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Poseso\Settings\Cache\Cache;
+use Poseso\Settings\Scopes\Scope;
 use Poseso\Settings\Stores\ArrayStore;
-use Illuminate\Cache\Repository as CacheRepo;
-use Illuminate\Cache\ArrayStore as CacheRepoStore;
 
 class RepositoryTest extends TestCase
 {
@@ -21,13 +19,6 @@ class RepositoryTest extends TestCase
         $store = new ArrayStore();
         $repo->setStore($store);
         $this->assertEquals($store, $repo->getStore());
-    }
-    public function testCacheCanBeSetAndRetrieved()
-    {
-        $repo = $this->getRepository();
-        $cache = new Cache(new CacheRepo(new CacheRepoStore()));
-        $repo->setCache($cache);
-        $this->assertEquals($cache, $repo->getCache());
     }
     public function testGetReturnsValue()
     {
@@ -103,10 +94,10 @@ class RepositoryTest extends TestCase
     public function testScope()
     {
         $repo = $this->getRepository();
-        $this->assertEquals('', $repo->getScope());
+        $this->assertEquals('default', $repo->getScope()->hash);
         $repo->getStore()->shouldReceive('scope')->with('foo');
         $this->assertNotEquals(spl_object_id($repo), spl_object_id($repo = $repo->scope('foo')));
-        $this->assertEquals('foo', $repo->getScope());
+        $this->assertEquals('foo', $repo->getScope()->hash);
     }
     public function testDefaultValuesCanBeSetAndRetrieved()
     {
@@ -152,24 +143,22 @@ class RepositoryTest extends TestCase
         $repo->getStore()->shouldReceive('get')->with('foo')->andReturn('qux');
         $this->assertEquals($repo->get('foo'), $repo['foo']);
         $this->assertEquals($repo->get('foo'), 'qux');
-        $repo->getStore()->shouldReceive('forget')->with('foo');
+        $repo->getStore()->shouldReceive('forget')->once()->with('foo')->andReturn(true);
         unset($repo['foo']);
     }
     public function testCloning()
     {
         $repo = $this->getRepository();
-        $repo->setCache(m::spy('Poseso\Settings\Cache\Cache'));
         $repo->setStore(new ArrayStore());
         $repo2 = clone $repo;
         $this->assertNotEquals(spl_object_id($repo->getStore()), spl_object_id($repo2->getStore()));
-        $this->assertNotEquals(spl_object_id($repo->getCache()), spl_object_id($repo2->getCache()));
     }
     protected function getRepository()
     {
         $dispatcher = new \Illuminate\Events\Dispatcher(m::mock('Illuminate\Container\Container'));
-        $store = m::spy('Poseso\Settings\Contracts\StoreContract');
+        $store = m::spy('Rudnev\Settings\Contracts\StoreContract');
         $store->allows(['getName' => 'a-store']);
-        $repository = new \Poseso\Settings\Repository($store);
+        $repository = new \Rudnev\Settings\Repository($store);
         $repository->setEventDispatcher($dispatcher);
         return $repository;
     }

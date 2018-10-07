@@ -5,6 +5,7 @@ namespace Poseso\Settings\Tests\Unit;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Poseso\Settings\Repository;
+use Poseso\Settings\Scopes\Scope;
 use Poseso\Settings\Stores\ArrayStore;
 use Poseso\Settings\Events\PropertyMissed;
 use Poseso\Settings\Events\PropertyRemoved;
@@ -71,8 +72,8 @@ class EventsTest extends TestCase
     public function testScopeCanBeSetAndRetrieved()
     {
         $event = new PropertyWritten('foo', 'bar');
-        $event->setScope('foo');
-        $this->assertEquals('foo', $event->getScope());
+        $event->setScope($scope = new Scope('foo'));
+        $this->assertEquals($scope, $event->getScope());
     }
     protected function assertEventMatches($eventClass, $properties = [])
     {

@@ -5,6 +5,8 @@ namespace Poseso\Settings\Stores;
 use Illuminate\Support\Arr;
 use Illuminate\Database\ConnectionInterface;
 use Poseso\Settings\Contracts\StoreContract;
+use Poseso\Settings\Scopes\EntityScope;
+use Poseso\Settings\Scopes\Scope;
 
 class DatabaseStore implements StoreContract
 {
@@ -14,84 +16,72 @@ class DatabaseStore implements StoreContract
      * @var string
      */
     protected $name;
-
     /**
      * The database connection instance.
      *
      * @var \Illuminate\Database\ConnectionInterface
      */
     protected $connection;
-
     /**
      * The name of the settings table.
      *
      * @var string
      */
     protected $table;
-
     /**
      * The name of the "key" column.
      *
      * @var string
      */
     protected $keyColumn;
-
     /**
      * The name of the "value" column.
      *
      * @var string
      */
     protected $valueColumn;
-
     /**
      * The name of the scope column.
      *
      * @var string
      */
     protected $scopeColumn;
-
     /***
      * The name of the table for storing model settings.
      *
      * @var string
      */
     protected $morphTable;
-
     /***
      * The entity id column.
      *
      * @var string
      */
     protected $morphId;
-
     /***
      * The entity type column.
      *
      * @var string
      */
     protected $morphType;
-
     /***
      * The name of the "key" column.
      *
      * @var string
      */
     protected $morphKey;
-
     /***
      * The name of the "value" column.
      *
      * @var string
      */
     protected $morphValue;
-
     /**
      * The scope.
      *
-     * @var mixed
+     * @var \Poseso\Settings\Scopes\Scope
      */
-    protected $scope = '';
-
+    protected $scope;
     /**
      * Create a new database store.
      *
@@ -102,7 +92,6 @@ class DatabaseStore implements StoreContract
     public function __construct(ConnectionInterface $connection, array $names)
     {
         $this->connection = $connection;
-
         $this->table = $names['settings']['table'];
         $this->keyColumn = $names['settings']['key'];
         $this->valueColumn = $names['settings']['value'];
@@ -112,8 +101,8 @@ class DatabaseStore implements StoreContract
         $this->morphType = $names['settings_models']['entity'].'_type';
         $this->morphKey = $names['settings_models']['key'];
         $this->morphValue = $names['settings_models']['value'];
+        $this->scope = new Scope();
     }
-
     /**
      * {@inheritdoc}
      */
@@ -121,7 +110,6 @@ class DatabaseStore implements StoreContract
     {
         return $this->name;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -129,76 +117,59 @@ class DatabaseStore implements StoreContract
     {
         $this->name = $name;
     }
-
     /**
      * Get the scope.
      *
-     * @return mixed
+     * @return \Poseso\Settings\Scopes\Scope
      */
-    public function getScope()
+    public function getScope(): Scope
     {
         return $this->scope;
     }
-
     /**
      * Set the scope.
      *
-     * @param mixed
+     * @param \Poseso\Settings\Scopes\Scope $scope
      * @return void
      */
-    public function setScope($scope)
+    public function setScope(Scope $scope)
     {
-        if (is_object($scope) && method_exists($scope, 'getKey')) {
+        if ($scope instanceof EntityScope) {
             $this->table = $this->morphTable;
             $this->keyColumn = $this->morphKey;
             $this->valueColumn = $this->morphValue;
-        } else {
-            $scope = (string) $scope;
         }
-
         $this->scope = $scope;
     }
-
     /**
      * {@inheritdoc}
      */
     public function has($key)
     {
         $keys = explode('.', $key);
-
         if (count($keys) > 1) {
             return ! is_null($this->get($key));
         }
-
         return $this->table()->where($this->keyColumn, '=', $key)->whereNotNull($this->valueColumn)->exists();
     }
-
     /**
      * {@inheritdoc}
      */
     public function get($key)
     {
         $keys = explode('.', $key);
-
         if (count($keys) > 1) {
             $root = $keys[0];
-
             $data = [$root => $this->get($root)];
-
             return Arr::get($data, $key);
         }
-
         $item = $this->table()->where($this->keyColumn, '=', $key)->first();
-
         if (is_null($item)) {
             return;
         }
-
         $item = is_array($item) ? (object) $item : $item;
-
         return $this->unpack($item->{$this->valueColumn});
     }
-
     /**
      * {@inheritdoc}
      */
@@ -206,79 +177,59 @@ class DatabaseStore implements StoreContract
     {
         $return = [];
         $data = [];
-
         foreach ($keys as $i => $key) {
             $subkeys = explode('.', $key);
-
             if (count($subkeys) > 1) {
                 $root = $subkeys[0];
-
                 if (! isset($data[$root])) {
                     $data[$root] = $this->get($root);
                 }
-
                 $return[$key] = Arr::get([$root => $data[$root]], $key);
-
                 unset($keys[$i]);
             }
         }
-
         if (count($keys) === 0) {
             return $return;
         }
-
         $result = $this->table()->whereIn($this->keyColumn, $keys)->get();
-
         while ($item = $result->shift()) {
             $return[$item->{$this->keyColumn}] = $this->unpack($item->{$this->valueColumn});
         }
-
         foreach ($keys as $key) {
             if (! isset($return[$key])) {
                 $return[$key] = null;
             }
         }
-
         return $return;
     }
-
     /**
      * {@inheritdoc}
      */
     public function all()
     {
         $return = [];
-
         $result = $this->table()->get();
-
         while ($item = $result->shift()) {
             $return[$item->{$this->keyColumn}] = $this->unpack($item->{$this->valueColumn});
         }
-
         return $return;
     }
-
     /**
      * {@inheritdoc}
      */
     public function set($key, $value)
     {
         list($key, $value) = $this->prepareIfNested($key, $value);
-
         $value = $this->pack($value);
-
         $values = [$this->valueColumn => $value];
-
-        if (is_object($this->scope) && method_exists($this->scope, 'getKey')) {
-            $values[$this->morphId] = $this->scope->getKey();
-            $values[$this->morphType] = get_class($this->scope);
+        if ($this->scope instanceof EntityScope) {
+            $values[$this->morphId] = $this->scope->entityId;
+            $values[$this->morphType] = $this->scope->entityClass;
         } else {
-            $values[$this->scopeColumn] = $this->scope;
+            $values[$this->scopeColumn] = $this->scope->hash;
         }
-
         $this->table()->updateOrInsert([$this->keyColumn => $key], $values);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -289,7 +240,6 @@ class DatabaseStore implements StoreContract
             $this->set($key, $value);
         }
     }
-
     /**
      * Prepare the item for setting it to the store,
      * if the key is a chain like a foo.bar.baz.
@@ -301,48 +251,33 @@ class DatabaseStore implements StoreContract
     protected function prepareIfNested($key, $value)
     {
         $keys = explode('.', $key);
-
         if (count($keys) > 1) {
             $root = $keys[0];
-
             $data = [$root => $this->get($root)];
-
             Arr::set($data, $key, $value);
-
             return [$root, $data[$root]];
         }
-
         return [$key, $value];
     }
-
     /**
      * {@inheritdoc}
      */
     public function forget($key)
     {
         $keys = explode('.', $key);
-
         if (count($keys) > 1) {
             $root = $keys[0];
-
             $data = [$root => $this->get($root)];
-
             if (! isset($data[$root])) {
                 return false;
             }
-
             Arr::forget($data, [$key]);
-
             $this->set($root, $data[$root]);
-
             return true;
         }
-
         $this->table()->where($this->keyColumn, '=', $key)->delete();
-
         return true;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -351,10 +286,8 @@ class DatabaseStore implements StoreContract
         foreach ($keys as $key) {
             $this->forget($key);
         }
-
         return true;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -362,19 +295,15 @@ class DatabaseStore implements StoreContract
     {
         return (bool) $this->table()->delete();
     }
-
     /**
      * {@inheritdoc}
      */
-    public function scope($scope): StoreContract
+    public function scope(Scope $scope): StoreContract
     {
         $store = clone $this;
-
         $store->setScope($scope);
-
         return $store;
     }
-
     /**
      * Get a query builder for the settings table.
      *
@@ -383,21 +312,13 @@ class DatabaseStore implements StoreContract
     protected function table()
     {
         $query = $this->connection->table($this->table);
-
-        if (is_object($this->scope) && method_exists($this->scope, 'getKey')) {
-            $model = $this->scope;
-            $query->where($this->morphId, $model->getKey())->where($this->morphType, get_class($model));
-        } elseif ((string) $this->scope === '') {
-            $query->where(function ($query) {
-                $query->where($this->scopeColumn, '')->orWhereNull($this->scopeColumn);
-            });
+        if ($this->scope instanceof EntityScope) {
+            $query->where($this->morphId, $this->scope->entityId)->where($this->morphType, $this->scope->entityClass);
         } else {
-            $query->where($this->scopeColumn, $this->scope);
+            $query->where($this->scopeColumn, $this->scope->hash);
         }
-
         return $query;
     }
-
     /**
      * Get the underlying database connection.
      *
@@ -407,7 +328,6 @@ class DatabaseStore implements StoreContract
     {
         return $this->connection;
     }
-
     /**
      * Pack the value before write to the database.
      *
@@ -418,7 +338,6 @@ class DatabaseStore implements StoreContract
     {
         return json_encode($value);
     }
-
     /**
      * Unpack the value after retrieving then from the database.
      *

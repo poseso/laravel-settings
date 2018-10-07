@@ -2,6 +2,8 @@
 
 namespace Poseso\Settings\Events;
 
+use Poseso\Settings\Scopes\Scope;
+
 class StoreEvent
 {
     /**
@@ -14,9 +16,9 @@ class StoreEvent
     /**
      * The scope.
      *
-     * @var
+     * @var \Poseso\Settings\Scopes\Scope
      */
-    protected $scope = '';
+    protected $scope;
 
     /**
      * Get the store name.
@@ -41,7 +43,7 @@ class StoreEvent
     /**
      * Get the scope.
      *
-     * @return string
+     * \Poseso\Settings\Scopes\Scope
      */
     public function getScope()
     {
@@ -51,9 +53,9 @@ class StoreEvent
     /**
      * Set the scope.
      *
-     * @param string $scope
+     * \Poseso\Settings\Scopes\Scope $scope
      */
-    public function setScope($scope)
+    public function setScope(Scope $scope)
     {
         $this->scope = $scope;
     }

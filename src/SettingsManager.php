@@ -5,11 +5,13 @@ namespace Poseso\Settings;
 use Closure;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use Poseso\Settings\Cache\Cache;
 use Illuminate\Events\Dispatcher;
+use Poseso\Settings\Cache\CacheDecorator;
+use Poseso\Settings\Cache\L1\FirstLevelCache;
+use Poseso\Settings\Cache\L2\SecondLevelCache;
+use Poseso\Settings\Scopes\Scope;
 use Poseso\Settings\Stores\ArrayStore;
 use Poseso\Settings\Stores\DatabaseStore;
-use Poseso\Settings\Cache\EventSubscriber;
 use Poseso\Settings\Contracts\StoreContract;
 use Poseso\Settings\Contracts\FactoryContract;
 use Illuminate\Contracts\Cache\Factory as CacheFactoryContract;
@@ -26,21 +28,18 @@ class SettingsManager implements FactoryContract
      * @var \Illuminate\Foundation\Application
      */
     protected $app;
-
     /**
      * The registered custom driver creators.
      *
      * @var array
      */
     protected $customCreators = [];
-
     /**
      * The array of created stores.
      *
      * @var array
      */
     protected $stores = [];
-
     /**
      * Create a new manager instance.
      *
@@ -51,7 +50,6 @@ class SettingsManager implements FactoryContract
     {
         $this->app = $app;
     }
-
     /**
      * Get a repository instance.
      *
@@ -63,18 +61,14 @@ class SettingsManager implements FactoryContract
     public function store($name = null)
     {
         $name = $name ?: $this->getDefaultStore();
-
         if (is_null($name)) {
             throw new InvalidArgumentException(sprintf('Unable to resolve NULL store for [%s].', static::class));
         }
-
         if (! isset($this->stores[$name])) {
             $this->stores[$name] = $this->createStore($name);
         }
-
         return $this->stores[$name];
     }
-
     /**
      * Get the default store name.
      *
@@ -84,7 +78,6 @@ class SettingsManager implements FactoryContract
     {
         return $this->getConfig('default');
     }
-
     /**
      * Create a new store instance.
      *
@@ -96,26 +89,20 @@ class SettingsManager implements FactoryContract
     protected function createStore($name)
     {
         $config = $this->getConfig("stores.$name");
-
         if (is_null($config)) {
             throw new InvalidArgumentException("Store [{$name}] is not defined.");
         }
-
         $driver = $config['driver'] ?? null;
-
         if (isset($this->customCreators[$driver])) {
             return $this->callCustomCreator($driver, $name, $config);
         } else {
             $method = 'create'.Str::studly($driver).'Store';
-
             if (method_exists($this, $method)) {
                 return $this->$method($name, $config);
             }
         }
-
         throw new InvalidArgumentException("Driver [$driver] not supported.");
     }
-
     /**
      * Call a custom driver creator.
      *
@@ -128,23 +115,18 @@ class SettingsManager implements FactoryContract
     {
         return $this->customCreators[$driver]($this->app, $storeName, $config);
     }
-
     /**
      * Create an instance of the array store.
      *
      * @param string $name
-     * @param  array $config
      * @return \Poseso\Settings\Repository
      */
-    protected function createArrayStore($name, array $config)
+    protected function createArrayStore($name)
     {
         $store = new ArrayStore();
-
         $store->setName($name);
-
         return $this->repository($store);
     }
-
     /**
      * Create an instance of the database store.
      *
@@ -155,80 +137,112 @@ class SettingsManager implements FactoryContract
     protected function createDatabaseStore($name, array $config)
     {
         $connection = $this->app['db']->connection($config['connection'] ?? null);
-
         $store = new DatabaseStore($connection, $config['names']);
-
         $store->setName($name);
-
-        $cache = $this->makeCache($config['cache'] ?? null);
-
-        return $this->repository($store, $cache);
+        $store = $this->makeCacheWrapper($store, $config['cache'] ?? null);
+        $this->preloadScopes($config['scopes']['preload'] ?? [], $store);
+        $repository = $this->repository($store);
+        $repository->setScope($config['scopes']['default'] ?? 'default');
+        return $repository;
     }
-
+    /**
+     * Preload scopes.
+     *
+     * @param array $scopes
+     * @param \Poseso\Settings\Contracts\StoreContract $store
+     * @return void
+     */
+    public function preloadScopes(array $scopes, StoreContract $store): void
+    {
+        if ($store instanceof CacheDecorator) {
+            foreach ($scopes as $scope) {
+                $store->scope(new Scope($scope))->all();
+            }
+        }
+    }
     /**
      * Create a new settings repository with the given implementation.
      *
      * @param  \Poseso\Settings\Contracts\StoreContract $store
-     * @param  \Poseso\Settings\Cache\Cache
      * @return \Poseso\Settings\Repository
      */
-    public function repository(StoreContract $store, Cache $cache = null)
+    public function repository(StoreContract $store)
     {
         $repository = new Repository($store);
-
-        $this->addEventDispatcher($repository);
-
-        $this->addCache($repository, $cache);
-
+        $repository->setEventDispatcher($this->getEventDispatcher());
         return $repository;
     }
-
     /**
-     * Set the event dispatcher instance to the settings repository.
+     * Get the event dispatcher instance.
      *
-     * @param \Poseso\Settings\Repository $repository
-     * @return void
+     * @return \Illuminate\Contracts\Events\Dispatcher
      */
-    protected function addEventDispatcher(Repository $repository)
+    protected function getEventDispatcher(): DispatcherContract
     {
         if ($this->getConfig('events')) {
-            $repository->setEventDispatcher($this->app[DispatcherContract::class]);
+            return $this->app[DispatcherContract::class];
         } else {
-            $repository->setEventDispatcher(new Dispatcher());
+            return new Dispatcher();
         }
     }
-
     /**
-     * Set the cache instance to the settings repository.
+     * Wrap the store in the cache decorator.
      *
-     * @param \Poseso\Settings\Repository $repository
-     * @param  \Poseso\Settings\Cache\Cache $cache
+     * @param \Poseso\Settings\Contracts\StoreContract $store
+     * @param array $config
+     * @return \Poseso\Settings\Cache\CacheDecorator|\Rudnev\Settings\Contracts\StoreContract
+     */
+    protected function makeCacheWrapper(StoreContract $store, array $config = [])
+    {
+        if (empty($config['enabled'])) {
+            return $store;
+        }
+        return new CacheDecorator($store, $this->getFirstLevelCache(), $this->getSecondLevelCache($store, $config));
+    }
+    /**
+     * Get the first level cache instance.
+     *
+     * @return \Poseso\Settings\Cache\L1\FirstLevelCache
+     */
+    public function getFirstLevelCache(): FirstLevelCache
+    {
+        return new FirstLevelCache();
+    }
+    /**
+     * Get the second level cache instance.
+     *
+     * @param \Poseso\Settings\Contracts\StoreContract|string $store
+     * @param array|null $config
+     * @return \Poseso\Settings\Cache\L2\SecondLevelCache
+     */
+    public function getSecondLevelCache($store, array $config = null): SecondLevelCache
+    {
+        $repository = $this->app[CacheFactoryContract::class]->store($config['store'] ?? null);
+        $secondLevelCache = new SecondLevelCache($repository);
+        $storeName = $store instanceof StoreContract ? $store->getName() : $store;
+        $secondLevelCache->setPrefix(sprintf('%s.%s', $config['prefix'] ?? 'ls', $storeName));
+        $secondLevelCache->setDefaultLifetime((int) $config['ttl'] ?? null);
+        return $secondLevelCache;
+    }
+    /**
+     * Clear the cache.
+     *
      * @return void
      */
-    protected function addCache(Repository $repository, Cache $cache = null)
+    public function clearCache(): void
     {
-        if ($cache) {
-            $repository->setCache($cache);
-
-            $repository->getEventDispatcher()->subscribe(new EventSubscriber($cache));
+        foreach ($this->stores as $repo) {
+            $store = $repo->getStore();
+            if ($store instanceof CacheDecorator) {
+                $store->getFirstLevelCache()->flush();
+            }
+        }
+        foreach ($this->getConfig('stores') as $name => $config) {
+            if (! empty($config['cache'])) {
+                $this->getSecondLevelCache($name, $config['cache'])->flush();
+            }
         }
     }
-
-    /**
-     * Make a cache instance.
-     *
-     * @param array $config
-     * @return \Poseso\Settings\Cache\Cache|null
-     */
-    protected function makeCache(array $config = [])
-    {
-        if (! empty($config['enabled'])) {
-            $repo = $this->app[CacheFactoryContract::class]->store($config['store'] ?? null);
-
-            return new Cache($repo, $config['ttl'] ?? null);
-        }
-    }
-
     /**
      * Get the settings configuration.
      *
@@ -239,7 +253,6 @@ class SettingsManager implements FactoryContract
     {
         return $this->app['config']["settings.$key"];
     }
-
     /**
      * Register a custom driver creator Closure.
      *
@@ -250,10 +263,8 @@ class SettingsManager implements FactoryContract
     public function extend($driver, Closure $callback)
     {
         $this->customCreators[$driver] = $callback;
-
         return $this;
     }
-
     /**
      * Dynamically call the default store instance.
      *

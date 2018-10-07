@@ -1,0 +1,32 @@
+<?php
+
+namespace Poseso\Settings\Tests\Unit\Cache\L1;
+
+use Mockery as m;
+use PHPUnit\Framework\TestCase;
+use Poseso\Settings\Cache\L1\FirstLevelRegion;
+use Poseso\Settings\Cache\L1\FirstLevelCache;
+
+class FirstLevelCacheTest extends TestCase
+{
+    public function tearDown()
+    {
+        m::close();
+    }
+    public function testRegionCanBeCreatedAndRetrieved()
+    {
+        $cache = new FirstLevelCache();
+        $region = $cache->region('foo');
+        $this->assertInstanceOf(FirstLevelRegion::class, $region);
+        $this->assertEquals('foo', $region->getName());
+        $this->assertEquals(spl_object_id($region), spl_object_id($cache->region('foo')));
+    }
+    public function testCacheCanBeFlushed()
+    {
+        $cache = new FirstLevelCache();
+        $cache->region('foo')->put('bar', 123);
+        $this->assertEquals(123, $cache->region('foo')->get('bar'));
+        $cache->flush();
+        $this->assertNull($cache->region('foo')->get('bar'));
+    }
+}

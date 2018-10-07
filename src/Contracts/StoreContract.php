@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Poseso\Settings\Contracts;
+
+use Poseso\Settings\Scopes\Scope;
 
 interface StoreContract
 {
@@ -15,9 +19,24 @@ interface StoreContract
      * Set the settings store name.
      *
      * @param $name
-     * @return mixed
+     * @return void
      */
     public function setName($name);
+
+    /**
+     * Get the scope.
+     *
+     * @return \Poseso\Settings\Scopes\Scope
+     */
+    public function getScope(): Scope;
+
+    /**
+     * Set the scope.
+     *
+     * @param mixed $scope
+     * @return void
+     */
+    public function setScope(Scope $scope);
 
     /**
      * Determine if an item exists in the settings store.
@@ -95,8 +114,8 @@ interface StoreContract
     /**
      * Set the scope.
      *
-     * @param mixed $scope
+     * \Poseso\Settings\Scopes\Scope $scope
      * @return \Poseso\Settings\Contracts\StoreContract
      */
-    public function scope($scope): self;
+    public function scope(Scope $scope): self;
 }

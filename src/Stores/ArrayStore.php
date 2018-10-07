@@ -4,6 +4,7 @@ namespace Poseso\Settings\Stores;
 
 use Illuminate\Support\Arr;
 use Poseso\Settings\Contracts\StoreContract;
+use Poseso\Settings\Scopes\Scope;
 
 class ArrayStore implements StoreContract
 {
@@ -13,21 +14,27 @@ class ArrayStore implements StoreContract
      * @var string
      */
     protected $name;
-
     /**
      * The scope.
      *
-     * @var mixed
+     * @var \Poseso\Settings\Scopes\Scope
      */
     protected $scope;
-
     /**
      * The array of stored values.
      *
      * @var array
      */
     protected $storage = [];
-
+    /**
+     * ArrayStore constructor.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->scope = new Scope();
+    }
     /**
      * {@inheritdoc}
      */
@@ -35,7 +42,6 @@ class ArrayStore implements StoreContract
     {
         return $this->name;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -43,7 +49,25 @@ class ArrayStore implements StoreContract
     {
         $this->name = $name;
     }
-
+    /**
+     * Get the scope.
+     *
+     * @return \Poseso\Settings\Scopes\Scope
+     */
+    public function getScope(): Scope
+    {
+        return $this->scope;
+    }
+    /**
+     * Set the scope.
+     *
+     * @param mixed $scope
+     * @return void
+     */
+    public function setScope(Scope $scope): void
+    {
+        $this->scope = $scope;
+    }
     /**
      * {@inheritdoc}
      */
@@ -51,7 +75,6 @@ class ArrayStore implements StoreContract
     {
         return ! is_null(Arr::get($this->storage, $key));
     }
-
     /**
      * {@inheritdoc}
      */
@@ -59,21 +82,17 @@ class ArrayStore implements StoreContract
     {
         return Arr::get($this->storage, $key);
     }
-
     /**
      * {@inheritdoc}
      */
     public function getMultiple(iterable $keys)
     {
         $return = [];
-
         foreach ($keys as $key) {
             $return[$key] = $this->get($key);
         }
-
         return $return;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -81,7 +100,6 @@ class ArrayStore implements StoreContract
     {
         return $this->storage;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -89,7 +107,6 @@ class ArrayStore implements StoreContract
     {
         Arr::set($this->storage, $key, $value);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -99,17 +116,14 @@ class ArrayStore implements StoreContract
             $this->set($key, $value);
         }
     }
-
     /**
      * {@inheritdoc}
      */
     public function forget($key)
     {
         Arr::forget($this->storage, $key);
-
         return true;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -118,32 +132,27 @@ class ArrayStore implements StoreContract
         foreach ($keys as $key) {
             $this->forget($key);
         }
-
         return true;
     }
-
     /**
      * {@inheritdoc}
      */
     public function flush()
     {
         $this->storage = [];
-
         return true;
     }
-
     /**
      * Set the scope.
      *
-     * @param $scope
+     * @param \Poseso\Settings\Scopes\Scope $scope
      * @return \Poseso\Settings\Contracts\StoreContract
      */
-    public function scope($scope): StoreContract
+    public function scope(Scope $scope): StoreContract
     {
         $store = clone $this;
-
+        $store->setScope($scope);
         $store->flush();
-
         return $store;
     }
 }

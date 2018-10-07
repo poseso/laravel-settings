@@ -1,5 +1,4 @@
 <?php
-
 return [
     /*
    |--------------------------------------------------------------------------
@@ -13,9 +12,7 @@ return [
    | Supported: "array", "database"
    |
    */
-
     'default' => env('SETTINGS_DRIVER', 'database'),
-
     /*
     |--------------------------------------------------------------------------
     | Settings Stores
@@ -26,81 +23,77 @@ return [
     | same settings driver to group types of items stored in your settings store.
     |
     */
-
     'stores' => [
-
         'array' => [
             // The driver name.
             'driver' => 'array',
         ],
-
         'database' => [
             // The driver name.
             'driver' => 'database',
-
             // The database connection from file "config/database.php".
             // If set to null or false, the default connection will be used.
             'connection' => null,
-
             /*
              |------------------------------------------------------------------
-             |  Cache configuration:
-             |------------------------------------------------------------------
-             */
-            'cache' => [
-                // Enable / Disable caching.
-                'enabled' => true,
-
-                // Time to Live in minutes.
-                'ttl' => 120,
-
-                // The cache store from file "config/cache.php".
-                // If set to null or false, the default store will be used.
-                'store' => null,
-            ],
-
-            /*
-             |------------------------------------------------------------------
-             |  Names of tables and columns.
+             |  Names of tables and columns
              |------------------------------------------------------------------
              */
             'names' => [
                 'settings' => [
                     // The name of the table for storing app settings.
                     'table' => 'settings',
-
                     // The name of the scope column.
                     'scope' => 'scope',
-
                     // The name of the key column.
                     'key' => 'name',
-
                     // The name of the value column.
                     'value' => 'value',
                 ],
-
                 'settings_models' => [
                     // The name of the table for storing model settings.
                     'table' => 'settings_models',
-
                     // The prefix for polymorphic association.
                     'entity' => 'model',
-
                     // The name of the key column.
                     'key' => 'name',
-
                     // The name of the value column.
                     'value' => 'value',
                 ],
             ],
+            /*
+             |------------------------------------------------------------------
+             |  Cache configuration
+             |------------------------------------------------------------------
+             */
+            'cache' => [
+                // Enable / Disable caching.
+                'enabled' => true,
+                // The cache key prefix.
+                'prefix' => 'ls',
+                // Time to Live in minutes.
+                'ttl' => 120,
+                // The cache store from file "config/cache.php".
+                // If set to null or false, the default store will be used.
+                'store' => null,
+            ],
+            /*
+             |------------------------------------------------------------------
+             |  Scopes configuration
+             |------------------------------------------------------------------
+             */
+            'scopes' => [
+                // The name of the default scope.
+                'default' => 'default',
+                // Scopes to preload (when cache is enabled).
+                'preload' => [
+                    'default',
+                ],
+            ],
         ],
-
         // Place the config for your custom store here:
-
         // ...
-
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Events
@@ -109,6 +102,5 @@ return [
     | Enable / Disable events triggering.
     |
     */
-
     'events' => true,
 ];

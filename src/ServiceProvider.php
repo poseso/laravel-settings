@@ -14,52 +14,57 @@ class ServiceProvider extends BaseProvider
      * @var bool
      */
     protected $defer = true;
-
     /**
      * Bootstrap the application events.
+     *
+     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__.'/../config/settings.php' => config_path('settings.php'),
         ], 'config');
-
         if (! class_exists('CreateSettingsTable')) {
             $timestamp = date('Y_m_d_His', time());
-
             $this->publishes([
                 __DIR__.'/../database/migrations/create_settings_table.stub' => $this->app['path.database']."/migrations/{$timestamp}_create_settings_table.php",
             ], 'migrations');
         }
     }
-
     /**
      * Register the service provider.
+     *
+     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/settings.php', 'settings');
-
         $this->app->singleton('settings', function ($app) {
             return new SettingsManager($app);
         });
-
         $this->app->singleton('settings.store', function ($app) {
             return $app['settings']->store();
         });
-
+        $this->addAliases();
+    }
+    /**
+     * Add aliases.
+     *
+     * @return void
+     */
+    public function addAliases(): void
+    {
         $this->app->alias('settings', FactoryContract::class);
         $this->app->alias('settings', SettingsManager::class);
         $this->app->alias('settings.store', RepositoryContract::class);
         $this->app->alias('settings.store', Repository::class);
     }
-
     /**
      * Get the services provided by the provider.
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [
             'settings',
