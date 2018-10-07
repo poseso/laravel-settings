@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Poseso\Settings\Structures;
 
 use ArrayObject;
+use TypeError;
 
 class Container extends ArrayObject
 {
@@ -16,9 +19,9 @@ class Container extends ArrayObject
      * Get the default value.
      *
      * @param string $key
-     * @return array
+     * @return mixed
      */
-    public function getDefault($key = null)
+    public function getDefault(string $key = null)
     {
         if (isset($key)) {
             return value(array_get($this->default, $key));
@@ -32,7 +35,7 @@ class Container extends ArrayObject
      * @param mixed $value
      * @return void
      */
-    public function setDefault($key, $value = null)
+    public function setDefault($key, $value = null): void
     {
         if (is_array($key)) {
             $this->default = array_merge($this->default, $key);
@@ -46,7 +49,7 @@ class Container extends ArrayObject
      * @param array|string $key
      * @return void
      */
-    public function forgetDefault($key = null)
+    public function forgetDefault($key = null): void
     {
         if (is_null($key)) {
             $this->default = [];
@@ -68,6 +71,31 @@ class Container extends ArrayObject
      */
     public function offsetGet($key)
     {
+        $this->checkKeyType($key);
         return $this->offsetExists($key) ? parent::offsetGet($key) : $this->getDefault($key);
+    }
+    /**
+     * Store an item.
+     *
+     * @param mixed $key
+     * @param mixed $value
+     * @return void
+     */
+    public function offsetSet($key, $value)
+    {
+        $this->checkKeyType($key);
+        parent::offsetSet($key, $value);
+    }
+    /**
+     * Check the type of key.
+     *
+     * @param mixed $key
+     * @return void
+     */
+    protected function checkKeyType(&$key)
+    {
+        if (! is_string($key)) {
+            throw new TypeError('Key must be of the type string, '.gettype($key).' given.');
+        }
     }
 }
