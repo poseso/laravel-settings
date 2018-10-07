@@ -108,7 +108,7 @@ class CacheDecorator implements StoreContract
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->store->getName();
     }
@@ -118,7 +118,7 @@ class CacheDecorator implements StoreContract
      * @param $name
      * @return void
      */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->store->setName($name);
     }
@@ -134,7 +134,7 @@ class CacheDecorator implements StoreContract
     /**
      * Set the scope.
      *
-     * @param mixed $scope
+     * @param \Poseso\Settings\Scopes\Scope $scope
      * @return void
      */
     public function setScope(Scope $scope): void
@@ -147,7 +147,7 @@ class CacheDecorator implements StoreContract
      * @param  string $key
      * @return bool
      */
-    public function has($key)
+    public function has(string $key): bool
     {
         $region = $this->getScope()->hash.'[has]';
         return $this->firstLevelCache->region($region)->get($key, function ($key) use ($region) {
@@ -162,7 +162,7 @@ class CacheDecorator implements StoreContract
      * @param  string $key
      * @return mixed
      */
-    public function get($key)
+    public function get(string $key)
     {
         $region = $this->getScope()->hash;
         return $this->firstLevelCache->region($region)->get($key, function ($key) use ($region) {
@@ -179,7 +179,7 @@ class CacheDecorator implements StoreContract
      * @param  iterable $keys
      * @return array
      */
-    public function getMultiple(iterable $keys)
+    public function getMultiple(iterable $keys): array
     {
         $region = $this->getScope()->hash;
         return $this->firstLevelCache->region($region)->getMultiple($keys, function ($keys) use ($region) {
@@ -193,7 +193,7 @@ class CacheDecorator implements StoreContract
      *
      * @return array
      */
-    public function all()
+    public function all(): array
     {
         $region = $this->getScope()->hash;
         return $this->firstLevelCache->region($region)->all(function () use ($region) {
@@ -209,7 +209,7 @@ class CacheDecorator implements StoreContract
      * @param  mixed $value
      * @return void
      */
-    public function set($key, $value)
+    public function set(string $key, $value): void
     {
         $this->store->set($key, $value);
         $region = $this->getScope()->hash;
@@ -225,7 +225,7 @@ class CacheDecorator implements StoreContract
      * @return void
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */
-    public function setMultiple(iterable $values)
+    public function setMultiple(iterable $values): void
     {
         $this->store->setMultiple($values);
         $region = $this->getScope()->hash;
@@ -240,14 +240,14 @@ class CacheDecorator implements StoreContract
      * @param  string $key
      * @return bool
      */
-    public function forget($key)
+    public function forget(string $key): bool
     {
         $result = $this->store->forget($key);
         if ($result) {
             $this->firstLevelCache->region($this->getScope()->hash)->forget($key);
             $this->firstLevelCache->region($this->getScope()->hash.'[has]')->forget($key);
-            $this->secondLevelCache->region($this->getScope()->hash)->forget($key);
-            $this->secondLevelCache->region($this->getScope()->hash.'[has]')->forget($key);
+            $this->secondLevelCache->region($this->getScope()->hash)->flush();
+            $this->secondLevelCache->region($this->getScope()->hash.'[has]')->flush();
         }
         return $result;
     }
@@ -257,14 +257,14 @@ class CacheDecorator implements StoreContract
      * @param  iterable $keys
      * @return bool
      */
-    public function forgetMultiple(iterable $keys)
+    public function forgetMultiple(iterable $keys): bool
     {
         $result = $this->store->forgetMultiple($keys);
         if ($result) {
             $this->firstLevelCache->region($this->getScope()->hash)->forgetMultiple($keys);
             $this->firstLevelCache->region($this->getScope()->hash.'[has]')->forgetMultiple($keys);
-            $this->secondLevelCache->region($this->getScope()->hash)->forgetMultiple($keys);
-            $this->secondLevelCache->region($this->getScope()->hash.'[has]')->forgetMultiple($keys);
+            $this->secondLevelCache->region($this->getScope()->hash)->flush();
+            $this->secondLevelCache->region($this->getScope()->hash.'[has]')->flush();
         }
         return $result;
     }
@@ -273,7 +273,7 @@ class CacheDecorator implements StoreContract
      *
      * @return bool
      */
-    public function flush()
+    public function flush(): bool
     {
         $result = $this->store->flush();
         if ($result) {
