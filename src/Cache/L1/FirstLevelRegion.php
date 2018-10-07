@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Cache\L1;
+namespace Poseso\Settings\Cache\L1;
 
 use Closure;
 use Illuminate\Support\Arr;
@@ -62,7 +62,7 @@ class FirstLevelRegion
      * @param string $key
      * @return bool
      */
-    public function has($key): bool
+    public function has(string $key): bool
     {
         return Arr::has($this->data, $key);
     }
@@ -73,12 +73,15 @@ class FirstLevelRegion
      * @param \Closure|null $callback
      * @return mixed
      */
-    public function get($key, Closure $callback = null)
+    public function get(string $key, Closure $callback = null)
     {
         if ($this->has($key)) {
             return Arr::get($this->data, $key);
         } elseif ($callback) {
-            $this->put($key, $value = $callback($key));
+            $value = $callback($key);
+            if (! is_null($value)) {
+                $this->put($key, $value);
+            }
         }
         return $value ?? null;
     }
@@ -104,7 +107,10 @@ class FirstLevelRegion
             }
         }
         if ($callback && ! empty($notFound)) {
-            $this->putMultiple($notFound = $callback($notFound));
+            $notFound = array_filter($callback($notFound), function ($value) {
+                return ! is_null($value);
+            });
+            $this->putMultiple($notFound);
             $result = array_merge($result, $notFound);
         }
         return $result;
@@ -133,7 +139,7 @@ class FirstLevelRegion
      * @param mixed $value
      * @return void
      */
-    public function put($key, $value): void
+    public function put(string $key, $value): void
     {
         Arr::set($this->data, $key, $value);
     }
@@ -155,7 +161,7 @@ class FirstLevelRegion
      * @param  string $key
      * @return void
      */
-    public function forget($key): void
+    public function forget(string $key): void
     {
         Arr::forget($this->data, $key);
     }
