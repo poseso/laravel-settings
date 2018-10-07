@@ -149,7 +149,7 @@ class CacheDecoratorTest extends TestCase
         $l1Mock->flush();
         $l2Mock->flush();
         $l1Mock->shouldReceive('region')->times(1)->andReturnUsing($l1Region);
-        $l2Mock->shouldReceive('region')->times(1)->andReturnUsing($l2Region);
+        $l2Mock->shouldReceive('region')->times(2)->andReturnUsing($l2Region);
         $storeMock->shouldReceive('get')->times(1)->andReturnUsing($storeGet);
         $this->assertEquals('bar', $decorator->get('foo'));
     }
