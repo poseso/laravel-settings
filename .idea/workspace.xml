@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="cache bug fix">
+    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="null values will no longer be cached">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" afterDir="false" />
     </list>
@@ -34,7 +34,7 @@
         <counts>
           <entry key="json" value="19" />
           <entry key="md" value="1" />
-          <entry key="php" value="766" />
+          <entry key="php" value="788" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
@@ -42,7 +42,7 @@
         <counts>
           <entry key="JSON" value="19" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="766" />
+          <entry key="PHP" value="788" />
           <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
@@ -50,7 +50,7 @@
         <counts>
           <entry key="json" value="1" />
           <entry key="md" value="1" />
-          <entry key="php" value="46" />
+          <entry key="php" value="49" />
           <entry key="stub" value="3" />
         </counts>
       </usages-collector>
@@ -58,7 +58,7 @@
         <counts>
           <entry key="JSON" value="1" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="46" />
+          <entry key="PHP" value="49" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -66,18 +66,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelCacheTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-              <folding>
-                <element signature="e#53#70#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Unit/Stores/ArrayStoreTest.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -117,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="296" column="1" lean-forward="true" selection-start-line="296" selection-start-column="1" selection-end-line="296" selection-end-column="1" />
+            <state relative-caret-position="392">
+              <caret line="167" column="104" selection-start-line="167" selection-start-column="104" selection-end-line="167" selection-end-column="104" />
               <folding>
                 <element signature="e#62#90#0#PHP" expanded="true" />
               </folding>
@@ -127,12 +115,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelRegionTest.php">
+        <entry file="file://$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="101" column="1" lean-forward="true" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
+            <state relative-caret-position="213">
+              <caret line="180" column="39" lean-forward="true" selection-start-line="180" selection-start-column="39" selection-end-line="180" selection-end-column="39" />
               <folding>
-                <element signature="e#53#70#0#PHP" expanded="true" />
+                <element signature="e#67#79#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="308" column="1" lean-forward="true" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
+              <folding>
+                <element signature="e#67#79#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+              <folding>
+                <element signature="e#42#69#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,18 +157,6 @@
               <caret line="164" column="1" lean-forward="true" selection-start-line="164" selection-start-column="1" selection-end-line="164" selection-end-column="1" />
               <folding>
                 <element signature="e#46#63#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelCacheTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="92" column="1" lean-forward="true" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
-              <folding>
-                <element signature="e#53#70#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -217,9 +217,7 @@
         <option value="$PROJECT_DIR$/config/settings.php" />
         <option value="$PROJECT_DIR$/database/migrations/create_settings_table.stub" />
         <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelCache.php" />
-        <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php" />
         <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" />
-        <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" />
         <option value="$PROJECT_DIR$/src/Contracts/StoreContract.php" />
         <option value="$PROJECT_DIR$/src/Events/StoreEvent.php" />
         <option value="$PROJECT_DIR$/src/Repository.php" />
@@ -228,7 +226,6 @@
         <option value="$PROJECT_DIR$/src/ServiceProvider.php" />
         <option value="$PROJECT_DIR$/src/SettingsManager.php" />
         <option value="$PROJECT_DIR$/src/Stores/ArrayStore.php" />
-        <option value="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelCacheTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelRegionTest.php" />
@@ -239,6 +236,9 @@
         <option value="$PROJECT_DIR$/tests/Unit/SettingsManagerTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Stores/ArrayStoreTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Stores/DatabaseStoreTest.php" />
+        <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php" />
+        <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" />
+        <option value="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
         <option value="$PROJECT_DIR$/src/Cache/CacheDecorator.php" />
       </list>
     </option>
@@ -291,6 +291,26 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Cache" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Cache" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="L1" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Cache" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="L2" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Stores" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -354,7 +374,7 @@
       <workItem from="1537564053405" duration="601000" />
       <workItem from="1537714627741" duration="598000" />
       <workItem from="1538934471591" duration="36000" />
-      <workItem from="1538935521168" duration="4892000" />
+      <workItem from="1538935521168" duration="5198000" />
     </task>
     <task id="LOCAL-00001" summary="Cache and Scopes improvements.">
       <created>1538939439264</created>
@@ -370,11 +390,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538939635283</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="strict types &amp; cache bug fix">
+      <created>1538952822138</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1538952822138</updated>
+    </task>
+    <task id="LOCAL-00004" summary="null values will no longer be cached">
+      <created>1538953060354</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1538953060354</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19854000" />
+    <option name="totallyTimeSpent" value="20160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="22" width="1920" height="1058" extended-state="6" />
@@ -415,7 +449,9 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Cache and Scopes improvements." />
     <MESSAGE value="cache bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="cache bug fix" />
+    <MESSAGE value="strict types &amp; cache bug fix" />
+    <MESSAGE value="null values will no longer be cached" />
+    <option name="LAST_COMMIT_MESSAGE" value="null values will no longer be cached" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Facades/SettingsFacade.php">
@@ -525,30 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="182" column="1" lean-forward="true" selection-start-line="182" selection-start-column="1" selection-end-line="182" selection-end-column="1" />
-          <folding>
-            <element signature="e#67#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="171" column="1" lean-forward="true" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="302" column="1" lean-forward="true" selection-start-line="302" selection-start-column="1" selection-end-line="302" selection-end-column="1" />
-          <folding>
-            <element signature="e#67#79#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -614,16 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="155" column="22" lean-forward="true" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
-          <folding>
-            <element signature="e#40#67#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="350" column="1" lean-forward="true" selection-start-line="350" selection-start-column="1" selection-end-line="350" selection-end-column="1" />
           <folding>
             <element signature="e#40#67#0#PHP" expanded="true" />
           </folding>
@@ -730,10 +736,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="180" column="39" lean-forward="true" selection-start-line="180" selection-start-column="39" selection-end-line="180" selection-end-column="39" />
+          <folding>
+            <element signature="e#67#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="308" column="1" lean-forward="true" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
+          <folding>
+            <element signature="e#67#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding>
+            <element signature="e#42#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="296" column="1" lean-forward="true" selection-start-line="296" selection-start-column="1" selection-end-line="296" selection-end-column="1" />
+        <state relative-caret-position="392">
+          <caret line="167" column="104" selection-start-line="167" selection-start-column="104" selection-end-line="167" selection-end-column="104" />
           <folding>
             <element signature="e#62#90#0#PHP" expanded="true" />
           </folding>
