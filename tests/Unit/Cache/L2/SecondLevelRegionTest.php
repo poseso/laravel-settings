@@ -2,6 +2,7 @@
 
 namespace Poseso\Settings\Tests\Unit\Cache\L2;
 
+use Illuminate\Cache\Lock;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Poseso\Settings\Cache\L2\SecondLevelRegion;
@@ -117,6 +118,33 @@ class SecondLevelRegionTest extends TestCase
         $region->flush();
         $this->assertNull($region->get('bar'));
         $this->assertNull($region->get('baz'));
+    }
+    public function testLock()
+    {
+        $repo = m::spy('\Illuminate\Contracts\Cache\Repository');
+        $region = new SecondLevelRegion('foo', $repo);
+        $called = false;
+        $repo->shouldNotReceive('lock');
+        $region->lock('foo', function () use (&$called) {
+            $called = true;
+        });
+        $this->assertTrue($called);
+        $region = new SecondLevelRegion('foo', $repo);
+        $repo->shouldReceive('getStore')->once()->andReturn(new class
+        {
+            protected function lock()
+            {
+            }
+        });
+        $repo->shouldReceive('lock')->once()->andReturn($lock = m::spy(Lock::class));
+        $lock->shouldReceive('block')->andReturnUsing(function () {
+            value(func_get_arg(1));
+        });
+        $called = false;
+        $region->lock('foo', function () use (&$called) {
+            $called = true;
+        });
+        $this->assertTrue($called);
     }
     protected function bindData(m\MockInterface $store, array &$data)
     {
