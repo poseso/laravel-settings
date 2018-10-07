@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="Using atomic locks (if the cache driver supports this feature).">
+    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="Simplifying">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +34,7 @@
         <counts>
           <entry key="json" value="19" />
           <entry key="md" value="1" />
-          <entry key="php" value="967" />
+          <entry key="php" value="1071" />
           <entry key="txt" value="31" />
         </counts>
       </usages-collector>
@@ -44,7 +42,7 @@
         <counts>
           <entry key="JSON" value="19" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="967" />
+          <entry key="PHP" value="1071" />
           <entry key="PLAIN_TEXT" value="31" />
         </counts>
       </usages-collector>
@@ -92,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
+            <state relative-caret-position="296">
               <caret line="322" column="1" lean-forward="true" selection-start-line="322" selection-start-column="1" selection-end-line="322" selection-end-column="1" />
               <folding>
                 <element signature="e#64#91#0#PHP" expanded="true" />
@@ -113,7 +111,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="23">
@@ -236,10 +234,10 @@
         <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php" />
         <option value="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
         <option value="$PROJECT_DIR$/src/Commands/ClearCache.php" />
-        <option value="$PROJECT_DIR$/src/Cache/CacheDecorator.php" />
         <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php" />
+        <option value="$PROJECT_DIR$/src/Cache/CacheDecorator.php" />
       </list>
     </option>
   </component>
@@ -387,7 +385,7 @@
       <workItem from="1537564053405" duration="601000" />
       <workItem from="1537714627741" duration="598000" />
       <workItem from="1538934471591" duration="36000" />
-      <workItem from="1538935521168" duration="6072000" />
+      <workItem from="1538935521168" duration="6407000" />
     </task>
     <task id="LOCAL-00001" summary="Cache and Scopes improvements.">
       <created>1538939439264</created>
@@ -459,11 +457,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538953791281</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Using atomic locks (if the cache driver supports this feature).">
+      <created>1538954005998</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1538954005998</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Simplifying">
+      <created>1538954156968</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1538954156968</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21034000" />
+    <option name="totallyTimeSpent" value="21369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="22" width="1920" height="1058" extended-state="6" />
@@ -512,7 +524,8 @@
     <MESSAGE value="tests fix" />
     <MESSAGE value="The Artisan command for clearing the cache." />
     <MESSAGE value="Using atomic locks (if the cache driver supports this feature)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Using atomic locks (if the cache driver supports this feature)." />
+    <MESSAGE value="Simplifying" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplifying" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Facades/SettingsFacade.php">
@@ -807,16 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="322" column="1" lean-forward="true" selection-start-line="322" selection-start-column="1" selection-end-line="322" selection-end-column="1" />
-          <folding>
-            <element signature="e#64#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -840,6 +843,16 @@
           <caret line="172" column="1" lean-forward="true" selection-start-line="172" selection-start-column="1" selection-end-line="172" selection-end-column="1" />
           <folding>
             <element signature="e#53#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="322" column="1" lean-forward="true" selection-start-line="322" selection-start-column="1" selection-end-line="322" selection-end-column="1" />
+          <folding>
+            <element signature="e#64#91#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
