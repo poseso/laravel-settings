@@ -2,6 +2,7 @@
 
 namespace Poseso\Settings;
 
+use Poseso\Settings\Commands\ClearCache;
 use Poseso\Settings\Contracts\FactoryContract;
 use Poseso\Settings\Contracts\RepositoryContract;
 use Illuminate\Support\ServiceProvider as BaseProvider;
@@ -15,7 +16,7 @@ class ServiceProvider extends BaseProvider
      */
     protected $defer = true;
     /**
-     * Bootstrap the application events.
+     * Bootstrap services.
      *
      * @return void
      */
@@ -29,6 +30,11 @@ class ServiceProvider extends BaseProvider
             $this->publishes([
                 __DIR__.'/../database/migrations/create_settings_table.stub' => $this->app['path.database']."/migrations/{$timestamp}_create_settings_table.php",
             ], 'migrations');
+        }
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                ClearCache::class,
+            ]);
         }
     }
     /**
