@@ -182,7 +182,6 @@ $user = new User();
 $user->settings = ['lang' => 'en'];
 $user->save();
 
-print_r($user->settings);
 echo $user->settings['lang'];
 
 $user->settings['timezone'] = 'UTC';
@@ -290,8 +289,15 @@ foreach ($userSettings->all() as $key => $value)
     echo "$name: $value ($desc)" . PHP_EOL;
 }
 ```
+### Cache
 
+Cache is enabled by default, you can change this in your `config/settings.php` file.
 
+To clear the cache you can run the follow Artisan command:
+
+```bash
+php artisan settings:clear-cache
+```
 ### Events
 
 Events are triggered if this is not disabled via config (enabled by default).
