@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="minor fix on DatabaseStore">
+    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="added artisan command to service provider">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SettingsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/SettingsManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traits/HasSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traits/HasSettings.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,47 +22,47 @@
     <session id="-2014439464">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="19" />
-          <entry key="md" value="1" />
-          <entry key="php" value="1286" />
-          <entry key="txt" value="80" />
+          <entry key="md" value="15" />
+          <entry key="php" value="1409" />
+          <entry key="txt" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="19" />
-          <entry key="Markdown" value="1" />
-          <entry key="PHP" value="1286" />
-          <entry key="PLAIN_TEXT" value="80" />
+          <entry key="Markdown" value="15" />
+          <entry key="PHP" value="1409" />
+          <entry key="PLAIN_TEXT" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="json" value="1" />
-          <entry key="md" value="1" />
-          <entry key="php" value="56" />
+          <entry key="json" value="2" />
+          <entry key="md" value="2" />
+          <entry key="php" value="60" />
           <entry key="stub" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="1" />
-          <entry key="Markdown" value="1" />
-          <entry key="PHP" value="56" />
+          <entry key="JSON" value="2" />
+          <entry key="Markdown" value="2" />
+          <entry key="PHP" value="60" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -66,13 +70,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="411">
-              <caret line="83" column="1" lean-forward="true" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+              <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="115">
+                <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="206" column="1" lean-forward="true" selection-start-line="206" selection-start-column="1" selection-end-line="206" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SettingsManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="331" column="1" lean-forward="true" selection-start-line="331" selection-start-column="1" selection-end-line="331" selection-end-column="1" />
               <folding>
-                <element signature="e#31#67#0#PHP" expanded="true" />
+                <element signature="e#35#47#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Traits/HasSettings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="135" column="1" lean-forward="true" selection-start-line="135" selection-start-column="1" selection-end-line="135" selection-end-column="1" />
+              <folding>
+                <element signature="e#42#69#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +154,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/helpers.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/Traits/HasSettings.php" />
         <option value="$PROJECT_DIR$/tests/Integration/TestCase.php" />
         <option value="$PROJECT_DIR$/tests/Integration/ServiceProviderTest.php" />
         <option value="$PROJECT_DIR$/tests/Integration/Traits/HasSettingsTest.php" />
@@ -115,7 +168,6 @@
         <option value="$PROJECT_DIR$/src/Repository.php" />
         <option value="$PROJECT_DIR$/src/Scopes/EntityScope.php" />
         <option value="$PROJECT_DIR$/src/Scopes/Scope.php" />
-        <option value="$PROJECT_DIR$/src/SettingsManager.php" />
         <option value="$PROJECT_DIR$/src/Stores/ArrayStore.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelCacheTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelRegionTest.php" />
@@ -129,13 +181,17 @@
         <option value="$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php" />
         <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php" />
-        <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" />
         <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" />
         <option value="$PROJECT_DIR$/src/Cache/CacheDecorator.php" />
         <option value="$PROJECT_DIR$/src/Structures/Container.php" />
         <option value="$PROJECT_DIR$/src/Contracts/StoreContract.php" />
         <option value="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
         <option value="$PROJECT_DIR$/src/ServiceProvider.php" />
+        <option value="$PROJECT_DIR$/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" />
+        <option value="$PROJECT_DIR$/src/SettingsManager.php" />
+        <option value="$PROJECT_DIR$/src/Traits/HasSettings.php" />
       </list>
     </option>
   </component>
@@ -156,17 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="laravel-settings" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -197,39 +242,18 @@
               <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Stores" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Traits" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
             <path>
-              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Structures" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Unit" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Unit" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Cache" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="laravel-settings" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Unit" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Cache" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="L2" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="laravel-settings" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-settings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -285,7 +309,8 @@
       <workItem from="1538935521168" duration="7278000" />
       <workItem from="1538955307177" duration="154000" />
       <workItem from="1538955654304" duration="182000" />
-      <workItem from="1538958490482" duration="50000" />
+      <workItem from="1538958490482" duration="108000" />
+      <workItem from="1553472208086" duration="677000" />
     </task>
     <task id="LOCAL-00001" summary="Cache and Scopes improvements.">
       <created>1538939439264</created>
@@ -413,17 +438,24 @@
       <option name="project" value="LOCAL" />
       <updated>1538955758456</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added artisan command to service provider">
+      <created>1538958560719</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1538958560719</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22626000" />
+    <option name="totallyTimeSpent" value="23361000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2560" y="22" width="1920" height="1058" extended-state="6" />
+    <frame x="2560" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2657082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2683706" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -435,7 +467,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32946146" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -472,7 +504,8 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="minor fix" />
     <MESSAGE value="minor fix on DatabaseStore" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fix on DatabaseStore" />
+    <MESSAGE value="added artisan command to service provider" />
+    <option name="LAST_COMMIT_MESSAGE" value="added artisan command to service provider" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Facades/SettingsFacade.php">
@@ -482,13 +515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -519,13 +545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Traits/HasSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="81" column="52" lean-forward="true" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -568,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="415" column="1" lean-forward="true" selection-start-line="415" selection-start-column="1" selection-end-line="415" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scopes/EntityScope.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -586,16 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="278" column="1" lean-forward="true" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
-          <folding>
-            <element signature="e#33#45#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4163">
-          <caret line="181" column="1" selection-start-line="181" selection-start-column="1" selection-end-line="181" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7981">
@@ -735,9 +730,57 @@
     <entry file="file://$PROJECT_DIR$/src/ServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
-          <caret line="83" column="1" lean-forward="true" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="115">
+            <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="206" column="1" lean-forward="true" selection-start-line="206" selection-start-column="1" selection-end-line="206" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9223">
+          <caret line="415" column="1" lean-forward="true" selection-start-line="415" selection-start-column="1" selection-end-line="415" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SettingsManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="331" column="1" lean-forward="true" selection-start-line="331" selection-start-column="1" selection-end-line="331" selection-end-column="1" />
           <folding>
-            <element signature="e#31#67#0#PHP" expanded="true" />
+            <element signature="e#35#47#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits/HasSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="135" column="1" lean-forward="true" selection-start-line="135" selection-start-column="1" selection-end-line="135" selection-end-column="1" />
+          <folding>
+            <element signature="e#42#69#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,7 @@
 
 namespace Poseso\Settings\Traits;
 
-use ArrayObject;
+use Illuminate\Support\Arr;
 use Poseso\Settings\Structures\Container;
 
 trait HasSettings
@@ -41,8 +41,8 @@ trait HasSettings
                 return;
             }
 
-            $old = array_dot((array) $model->settingsOriginal);
-            $new = array_dot((array) $model->settingsAttribute);
+            $old = Arr::dot((array) $model->settingsOriginal);
+            $new = Arr::dot((array) $model->settingsAttribute);
 
             // removing settings
             if (! empty($old)) {

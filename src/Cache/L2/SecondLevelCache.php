@@ -14,30 +14,35 @@ class SecondLevelCache
      * @var \Illuminate\Contracts\Cache\Repository
      */
     protected $store;
+
     /**
      * The cache key prefix.
      *
      * @var string
      */
     protected $prefix = 'laravel_settings';
+
     /**
-     * The default lifetime in minutes.
+     * The default lifetime.
      *
      * @var int
      */
-    protected $defaultLifetime = 120;
+    protected $defaultLifetime = 7200;
+
     /**
      * The array of created regions.
      *
      * @var array
      */
     protected static $regions = [];
+
     /**
      * The version list.
      *
      * @var int[]
      */
     protected static $versions = [];
+
     /**
      * SecondLevelCache constructor.
      *
@@ -48,6 +53,7 @@ class SecondLevelCache
     {
         $this->store = $store;
     }
+
     /**
      * Get the cache store instance.
      *
@@ -57,6 +63,7 @@ class SecondLevelCache
     {
         return $this->store;
     }
+
     /**
      * Set the cache store instance.
      *
@@ -66,6 +73,7 @@ class SecondLevelCache
     {
         $this->store = $store;
     }
+
     /**
      * Get the cache key prefix.
      *
@@ -75,6 +83,7 @@ class SecondLevelCache
     {
         return $this->prefix;
     }
+
     /**
      * Set the cache key prefix.
      *
@@ -84,8 +93,9 @@ class SecondLevelCache
     {
         $this->prefix = $prefix;
     }
+
     /**
-     * Get the default lifetime in minutes.
+     * Get the default lifetime.
      *
      * @return int
      */
@@ -93,15 +103,17 @@ class SecondLevelCache
     {
         return $this->defaultLifetime;
     }
+
     /**
-     * Set the default lifetime in minutes.
+     * Set the default lifetime.
      *
-     * @param int $minutes
+     * @param int $lifetime
      */
-    public function setDefaultLifetime(int $minutes): void
+    public function setDefaultLifetime(int $lifetime): void
     {
-        $this->defaultLifetime = $minutes;
+        $this->defaultLifetime = $lifetime;
     }
+
     /**
      * Get the cache region by name.
      *
@@ -113,8 +125,10 @@ class SecondLevelCache
         if (empty(static::$regions[$this->prefix][$name])) {
             static::$regions[$this->prefix][$name] = $this->createRegion($name);
         }
+
         return static::$regions[$this->prefix][$name];
     }
+
     /**
      * Create a cache region instance.
      *
@@ -124,8 +138,10 @@ class SecondLevelCache
     protected function createRegion(string $name): SecondLevelRegion
     {
         $name = sprintf('%s[%s].%s', $this->prefix, $this->getVersion(), $name);
+
         return new SecondLevelRegion($name, $this->store, $this->defaultLifetime);
     }
+
     /**
      * Remove all items from the cache.
      *
@@ -134,8 +150,10 @@ class SecondLevelCache
     public function flush(): void
     {
         $this->incrementVersion();
+
         static::$regions[$this->prefix] = [];
     }
+
     /**
      * Returns the cache version.
      *
@@ -146,9 +164,12 @@ class SecondLevelCache
         if (array_key_exists($this->prefix, static::$versions)) {
             return static::$versions[$this->prefix];
         }
+
         static::$versions[$this->prefix] = (int) $this->store->get($this->getCacheVersionKey());
+
         return static::$versions[$this->prefix];
     }
+
     /**
      * Increment the cache version.
      *
@@ -157,9 +178,12 @@ class SecondLevelCache
     protected function incrementVersion(): void
     {
         $version = $this->getVersion() + 1;
+
         $this->store->forever($this->getCacheVersionKey(), $version);
+
         static::$versions[$this->prefix] = $version;
     }
+
     /**
      * Get the cache version key.
      *
@@ -169,6 +193,7 @@ class SecondLevelCache
     {
         return $this->prefix.'.version';
     }
+
     /**
      * Reset static properties.
      *
