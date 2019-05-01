@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Structures;
+namespace Poseso\Settings\Structures;
 
 use TypeError;
 use ArrayObject;

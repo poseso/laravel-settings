@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Cache\L2;
+namespace Poseso\Settings\Cache\L2;
 
 use Closure;
 use Illuminate\Contracts\Cache\Repository;

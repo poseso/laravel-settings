@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Cache\L1;
+namespace Poseso\Settings\Cache\L1;
 
 use Closure;
 use Illuminate\Support\Arr;

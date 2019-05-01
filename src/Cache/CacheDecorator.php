@@ -2,45 +2,45 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Cache;
+namespace Poseso\Settings\Cache;
 
 use Illuminate\Support\Arr;
-use Rudnev\Settings\Scopes\Scope;
-use Rudnev\Settings\Contracts\StoreContract;
-use Rudnev\Settings\Cache\L1\FirstLevelCache;
-use Rudnev\Settings\Cache\L1\FirstLevelRegion;
-use Rudnev\Settings\Cache\L2\SecondLevelCache;
-use Rudnev\Settings\Cache\L2\SecondLevelRegion;
+use Poseso\Settings\Scopes\Scope;
+use Poseso\Settings\Contracts\StoreContract;
+use Poseso\Settings\Cache\L1\FirstLevelCache;
+use Poseso\Settings\Cache\L1\FirstLevelRegion;
+use Poseso\Settings\Cache\L2\SecondLevelCache;
+use Poseso\Settings\Cache\L2\SecondLevelRegion;
 
 class CacheDecorator implements StoreContract
 {
     /**
      * The settings store instance.
      *
-     * @var \Rudnev\Settings\Contracts\StoreContract
+     * @var \Poseso\Settings\Contracts\StoreContract
      */
     protected $store;
 
     /**
      * The first level cache.
      *
-     * @var \Rudnev\Settings\Cache\L1\FirstLevelCache
+     * @var \Poseso\Settings\Cache\L1\FirstLevelCache
      */
     protected $firstLevelCache;
 
     /**
      * The second level cache.
      *
-     * @var \Rudnev\Settings\Cache\L2\SecondLevelCache
+     * @var \Poseso\Settings\Cache\L2\SecondLevelCache
      */
     protected $secondLevelCache;
 
     /**
      * CacheDecorator constructor.
      *
-     * @param \Rudnev\Settings\Contracts\StoreContract $store
-     * @param \Rudnev\Settings\Cache\L1\FirstLevelCache $firstLevelCache
-     * @param \Rudnev\Settings\Cache\L2\SecondLevelCache $secondLevelCache
+     * @param \Poseso\Settings\Contracts\StoreContract $store
+     * @param \Poseso\Settings\Cache\L1\FirstLevelCache $firstLevelCache
+     * @param \Poseso\Settings\Cache\L2\SecondLevelCache $secondLevelCache
      * @return void
      */
     public function __construct(
@@ -56,7 +56,7 @@ class CacheDecorator implements StoreContract
     /**
      * Get the settings store instance.
      *
-     * @return \Rudnev\Settings\Contracts\StoreContract
+     * @return \Poseso\Settings\Contracts\StoreContract
      */
     public function getStore(): StoreContract
     {
@@ -66,7 +66,7 @@ class CacheDecorator implements StoreContract
     /**
      * Set the settings store implementation.
      *
-     * @param \Rudnev\Settings\Contracts\StoreContract $store
+     * @param \Poseso\Settings\Contracts\StoreContract $store
      * @return void
      */
     public function setStore(StoreContract $store): void
@@ -77,7 +77,7 @@ class CacheDecorator implements StoreContract
     /**
      * Get the first level cache instance.
      *
-     * @return \Rudnev\Settings\Cache\L1\FirstLevelCache
+     * @return \Poseso\Settings\Cache\L1\FirstLevelCache
      */
     public function getFirstLevelCache(): FirstLevelCache
     {
@@ -87,7 +87,7 @@ class CacheDecorator implements StoreContract
     /**
      * Set the first level cache instance.
      *
-     * @param \Rudnev\Settings\Cache\L1\FirstLevelCache $cache
+     * @param \Poseso\Settings\Cache\L1\FirstLevelCache $cache
      * @return void
      */
     public function setFirstLevelCache(FirstLevelCache $cache): void
@@ -98,7 +98,7 @@ class CacheDecorator implements StoreContract
     /**
      * Get the second level cache instance.
      *
-     * @return \Rudnev\Settings\Cache\L2\SecondLevelCache
+     * @return \Poseso\Settings\Cache\L2\SecondLevelCache
      */
     public function getSecondLevelCache(): SecondLevelCache
     {
@@ -108,7 +108,7 @@ class CacheDecorator implements StoreContract
     /**
      * Set the second level cache instance.
      *
-     * @param \Rudnev\Settings\Cache\L2\SecondLevelCache $secondLevelCache
+     * @param \Poseso\Settings\Cache\L2\SecondLevelCache $secondLevelCache
      * @return void
      */
     public function setSecondLevelCache(SecondLevelCache $secondLevelCache): void
@@ -140,7 +140,7 @@ class CacheDecorator implements StoreContract
     /**
      * Get the scope.
      *
-     * @return \Rudnev\Settings\Scopes\Scope
+     * @return \Poseso\Settings\Scopes\Scope
      */
     public function getScope(): Scope
     {
@@ -150,7 +150,7 @@ class CacheDecorator implements StoreContract
     /**
      * Set the scope.
      *
-     * @param \Rudnev\Settings\Scopes\Scope $scope
+     * @param \Poseso\Settings\Scopes\Scope $scope
      * @return void
      */
     public function setScope(Scope $scope): void
@@ -161,7 +161,7 @@ class CacheDecorator implements StoreContract
     /**
      * Get the first level region instance.
      *
-     * @return \Rudnev\Settings\Cache\L1\FirstLevelRegion
+     * @return \Poseso\Settings\Cache\L1\FirstLevelRegion
      */
     public function getFirstLevelRegion(): FirstLevelRegion
     {
@@ -171,7 +171,7 @@ class CacheDecorator implements StoreContract
     /**
      * Get the second level region instance.
      *
-     * @return \Rudnev\Settings\Cache\L2\SecondLevelRegion
+     * @return \Poseso\Settings\Cache\L2\SecondLevelRegion
      */
     public function getSecondLevelRegion(): SecondLevelRegion
     {
@@ -352,8 +352,8 @@ class CacheDecorator implements StoreContract
     /**
      * Set the scope.
      *
-     * @param \Rudnev\Settings\Scopes\Scope $scope
-     * @return \Rudnev\Settings\Cache\CacheDecorator
+     * @param \Poseso\Settings\Scopes\Scope $scope
+     * @return \Poseso\Settings\Cache\CacheDecorator
      */
     public function scope(Scope $scope): StoreContract
     {

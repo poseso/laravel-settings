@@ -1,6 +1,6 @@
 <?php
 
-namespace Rudnev\Settings\Tests\Integration;
+namespace Poseso\Settings\Tests\Integration;
 
 use Poseso\Settings\ServiceProvider;
 use Poseso\Settings\Facades\SettingsFacade;

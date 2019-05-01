@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Contracts;
+namespace Poseso\Settings\Contracts;
 
-use Rudnev\Settings\Scopes\Scope;
+use Poseso\Settings\Scopes\Scope;
 
 interface StoreContract
 {
@@ -26,14 +26,14 @@ interface StoreContract
     /**
      * Get the scope.
      *
-     * @return \Rudnev\Settings\Scopes\Scope
+     * @return \Poseso\Settings\Scopes\Scope
      */
     public function getScope(): Scope;
 
     /**
      * Set the scope.
      *
-     * @param \Rudnev\Settings\Scopes\Scope $scope
+     * @param \Poseso\Settings\Scopes\Scope $scope
      * @return void
      */
     public function setScope(Scope $scope): void;
@@ -114,8 +114,8 @@ interface StoreContract
     /**
      * Set the scope.
      *
-     * @param \Rudnev\Settings\Scopes\Scope $scope
-     * @return \Rudnev\Settings\Contracts\StoreContract
+     * @param \Poseso\Settings\Scopes\Scope $scope
+     * @return \Poseso\Settings\Contracts\StoreContract
      */
     public function scope(Scope $scope): self;
 }

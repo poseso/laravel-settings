@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Events;
+namespace Poseso\Settings\Events;
 
-use Rudnev\Settings\Scopes\Scope;
+use Poseso\Settings\Scopes\Scope;
 
 class StoreEvent
 {
@@ -18,7 +18,7 @@ class StoreEvent
     /**
      * The scope.
      *
-     * @var \Rudnev\Settings\Scopes\Scope
+     * @var \Poseso\Settings\Scopes\Scope
      */
     protected $scope;
 
@@ -45,7 +45,7 @@ class StoreEvent
     /**
      * Get the scope.
      *
-     * @return \Rudnev\Settings\Scopes\Scope
+     * @return \Poseso\Settings\Scopes\Scope
      */
     public function getScope(): Scope
     {
@@ -55,7 +55,7 @@ class StoreEvent
     /**
      * Set the scope.
      *
-     * @param \Rudnev\Settings\Scopes\Scope $scope
+     * @param \Poseso\Settings\Scopes\Scope $scope
      */
     public function setScope(Scope $scope)
     {

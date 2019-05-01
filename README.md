@@ -1,10 +1,5 @@
 ## Laravel Settings
 
-
-[![Build Status](https://travis-ci.org/Rudnev/laravel-settings.svg?branch=master)](https://travis-ci.org/Rudnev/laravel-settings)
-[![StyleCI](https://github.styleci.io/repos/141638505/shield?branch=master&style=flat)](https://github.styleci.io/repos/141638505)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
 Persistent settings for Laravel Framework 
 
 + Easy to Use
@@ -44,7 +39,7 @@ And if you prefer contracts, you can use Method dependency injection:
 
 namespace App\Http\Controllers;
 
-use Rudnev\Settings\Contracts\RepositoryContract as Settings;
+use Poseso\Settings\Contracts\RepositoryContract as Settings;
 
 class MyController extends Controller
 {
@@ -60,19 +55,19 @@ class MyController extends Controller
 You can install the package via composer:
 
 ``` bash
-composer require rudnev/laravel-settings
+composer require poseso/laravel-settings
 ```
 
 Publish [the config](config/settings.php) file with:
 
 ```bash
-php artisan vendor:publish --provider="Rudnev\Settings\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Poseso\Settings\ServiceProvider" --tag="config"
 ```
 
 Publish [the migration](database/migrations/create_settings_table.stub) with:
 
 ```bash
-php artisan vendor:publish --provider="Rudnev\Settings\ServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Poseso\Settings\ServiceProvider" --tag="migrations"
 ```
 
 After the migration has been published you can create the settings table by running the migrations:
@@ -165,10 +160,10 @@ Settings::scope($user)->set('lang', 'en');
 Settings::scope($user)->get('lang');
 ```
  
-But instead, it's better to use the `Rudnev\Settings\Trait\HasSettings` trait, for example:
+But instead, it's better to use the `Poseso\Settings\Trait\HasSettings` trait, for example:
 
 ```php
-use Rudnev\Settings\Trait\HasSettings;
+use Poseso\Settings\Trait\HasSettings;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model 
@@ -207,7 +202,7 @@ $user->settings('lang');
 To set the default settings define `$settingsConfig` property as array with `default` key:
 
 ```php
-use Rudnev\Settings\Trait\HasSettings;
+use Poseso\Settings\Trait\HasSettings;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model 
@@ -311,12 +306,12 @@ Events are triggered if this is not disabled via config (enabled by default).
 
 | Event | Description |
 | --- | --- |
-| [\Rudnev\Settings\Events\PropertyWritten](src/Events/PropertyWritten.php) | Fired after the value is written to the store.
-| [\Rudnev\Settings\Events\PropertyReceived](src/Events/PropertyReceived.php) | Fired after the value is retrieved from the store.
-| [\Rudnev\Settings\Events\PropertyMissed](src/Events/PropertyMissed.php) | Fired if the item not found or is not set.
-| [\Rudnev\Settings\Events\PropertyRemoved](src/Events/PropertyRemoved.php) | Fired after the item is removed from the store.
-| [\Rudnev\Settings\Events\AllSettingsReceived](src/Events/AllSettingsReceived.php) | Fired after retrieving all items from the store.
-| [\Rudnev\Settings\Events\AllSettingsRemoved](src/Events/AllSettingsRemoved.php) | Fired after removing all items from the store.
+| [\Poseso\Settings\Events\PropertyWritten](src/Events/PropertyWritten.php) | Fired after the value is written to the store.
+| [\Poseso\Settings\Events\PropertyReceived](src/Events/PropertyReceived.php) | Fired after the value is retrieved from the store.
+| [\Poseso\Settings\Events\PropertyMissed](src/Events/PropertyMissed.php) | Fired if the item not found or is not set.
+| [\Poseso\Settings\Events\PropertyRemoved](src/Events/PropertyRemoved.php) | Fired after the item is removed from the store.
+| [\Poseso\Settings\Events\AllSettingsReceived](src/Events/AllSettingsReceived.php) | Fired after retrieving all items from the store.
+| [\Poseso\Settings\Events\AllSettingsRemoved](src/Events/AllSettingsRemoved.php) | Fired after removing all items from the store.
 
 ### Custom Store
 
@@ -324,7 +319,7 @@ To create your own store, you must use the `extend` method on the `SettingsManag
 [StoreContract](src/Contracts/StoreContract.php):
 
 ```php
-use Rudnev\Settings\Contracts\StoreContract;
+use Poseso\Settings\Contracts\StoreContract;
 
 class MongoStore implements StoreContract {
 // ...
@@ -340,7 +335,7 @@ Settings::extend('mongo', function($app, $storeName, $config)
 });
 ```
 
-The first argument passed to the extend method is the name of the driver. This will correspond to your driver option in the `config/settings.php` configuration file. The second argument is a Closure that should return an `Rudnev\Settings\Repository` instance. The Closure will be passed an `$app` instance, which is an instance of `Illuminate\Foundation\Application` and a service container.
+The first argument passed to the extend method is the name of the driver. This will correspond to your driver option in the `config/settings.php` configuration file. The second argument is a Closure that should return an `Poseso\Settings\Repository` instance. The Closure will be passed an `$app` instance, which is an instance of `Illuminate\Foundation\Application` and a service container.
 
 The call to `Settings::extend` could be done in the `boot` method of the default  `App\Providers\AppServiceProvider` that ships with fresh Laravel applications, or you may create your own service provider to house the extension.
 

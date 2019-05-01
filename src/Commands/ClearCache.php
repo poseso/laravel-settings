@@ -1,9 +1,9 @@
 <?php
 
-namespace Rudnev\Settings\Commands;
+namespace Poseso\Settings\Commands;
 
 use Illuminate\Console\Command;
-use Rudnev\Settings\SettingsManager;
+use Poseso\Settings\SettingsManager;
 
 class ClearCache extends Command
 {
@@ -24,14 +24,14 @@ class ClearCache extends Command
     /**
      * The settings manager instance.
      *
-     * @var \Rudnev\Settings\SettingsManager
+     * @var \Poseso\Settings\SettingsManager
      */
     protected $manager;
 
     /**
      * Create a new command instance.
      *
-     * @param \Rudnev\Settings\SettingsManager $manager
+     * @param \Poseso\Settings\SettingsManager $manager
      * @return void
      */
     public function __construct(SettingsManager $manager)

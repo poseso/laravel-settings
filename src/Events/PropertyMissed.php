@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Events;
+namespace Poseso\Settings\Events;
 
 class PropertyMissed extends StoreEvent
 {

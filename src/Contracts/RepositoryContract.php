@@ -1,6 +1,6 @@
 <?php
 
-namespace Rudnev\Settings\Contracts;
+namespace Poseso\Settings\Contracts;
 
 interface RepositoryContract
 {
@@ -56,7 +56,7 @@ interface RepositoryContract
      * Set the scope.
      *
      * @param mixed $scope
-     * @return \Rudnev\Settings\Contracts\RepositoryContract
+     * @return \Poseso\Settings\Contracts\RepositoryContract
      */
     public function scope($scope): self;
 }

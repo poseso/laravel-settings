@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Cache\L1;
+namespace Poseso\Settings\Cache\L1;
 
 class FirstLevelCache
 {
     /**
      * The array of created regions.
      *
-     * @var \Rudnev\Settings\Cache\L1\FirstLevelRegion[]
+     * @var \Poseso\Settings\Cache\L1\FirstLevelRegion[]
      */
     protected $regions = [];
 
@@ -17,7 +17,7 @@ class FirstLevelCache
      * Get the cache region by name.
      *
      * @param string $name
-     * @return \Rudnev\Settings\Cache\L1\FirstLevelRegion
+     * @return \Poseso\Settings\Cache\L1\FirstLevelRegion
      */
     public function region(string $name): FirstLevelRegion
     {

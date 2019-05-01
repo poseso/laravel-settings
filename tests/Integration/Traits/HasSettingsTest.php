@@ -1,6 +1,6 @@
 <?php
 
-namespace Rudnev\Settings\Tests\Integration\Traits;
+namespace Poseso\Settings\Tests\Integration\Traits;
 
 use Mockery as m;
 use Illuminate\Database\Eloquent\Model as EloquentModel;

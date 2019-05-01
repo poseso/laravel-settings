@@ -1,6 +1,6 @@
 <?php
 
-namespace Rudnev\Settings\Facades;
+namespace Poseso\Settings\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Facade;
  * @method static void set(string $key, mixed $value)
  * @method static bool forget(string $key)
  * @method static bool flush()
- * @method static \Rudnev\Settings\Contracts\RepositoryContract store()
- * @method static \Rudnev\Settings\SettingsManager extend(string $driver, \Closure $callback)
- * @see \Rudnev\Settings\SettingsManager
- * @see \Rudnev\Settings\Repository
+ * @method static \Poseso\Settings\Contracts\RepositoryContract store()
+ * @method static \Poseso\Settings\SettingsManager extend(string $driver, \Closure $callback)
+ * @see \Poseso\Settings\SettingsManager
+ * @see \Poseso\Settings\Repository
  */
 class SettingsFacade extends Facade
 {

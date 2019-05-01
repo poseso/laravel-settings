@@ -1,24 +1,24 @@
 <?php
 
-namespace Rudnev\Settings;
+namespace Poseso\Settings;
 
 use Closure;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use Illuminate\Events\Dispatcher;
-use Rudnev\Settings\Scopes\Scope;
-use Rudnev\Settings\Stores\ArrayStore;
-use Rudnev\Settings\Cache\CacheDecorator;
-use Rudnev\Settings\Stores\DatabaseStore;
-use Rudnev\Settings\Contracts\StoreContract;
-use Rudnev\Settings\Cache\L1\FirstLevelCache;
-use Rudnev\Settings\Cache\L2\SecondLevelCache;
-use Rudnev\Settings\Contracts\FactoryContract;
+use Poseso\Settings\Scopes\Scope;
+use Poseso\Settings\Stores\ArrayStore;
+use Poseso\Settings\Cache\CacheDecorator;
+use Poseso\Settings\Stores\DatabaseStore;
+use Poseso\Settings\Contracts\StoreContract;
+use Poseso\Settings\Cache\L1\FirstLevelCache;
+use Poseso\Settings\Cache\L2\SecondLevelCache;
+use Poseso\Settings\Contracts\FactoryContract;
 use Illuminate\Contracts\Cache\Factory as CacheFactoryContract;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 
 /**
- * @mixin \Rudnev\Settings\Contracts\RepositoryContract
+ * @mixin \Poseso\Settings\Contracts\RepositoryContract
  */
 class SettingsManager implements FactoryContract
 {
@@ -135,7 +135,7 @@ class SettingsManager implements FactoryContract
      * Create an instance of the array store.
      *
      * @param string $name
-     * @return \Rudnev\Settings\Repository
+     * @return \Poseso\Settings\Repository
      */
     protected function createArrayStore($name)
     {
@@ -151,7 +151,7 @@ class SettingsManager implements FactoryContract
      *
      * @param string $name
      * @param  array $config
-     * @return \Rudnev\Settings\Repository
+     * @return \Poseso\Settings\Repository
      */
     protected function createDatabaseStore($name, array $config)
     {
@@ -176,7 +176,7 @@ class SettingsManager implements FactoryContract
      * Preload scopes.
      *
      * @param array $scopes
-     * @param \Rudnev\Settings\Contracts\StoreContract $store
+     * @param \Poseso\Settings\Contracts\StoreContract $store
      * @return void
      */
     public function preloadScopes(array $scopes, StoreContract $store): void
@@ -191,8 +191,8 @@ class SettingsManager implements FactoryContract
     /**
      * Create a new settings repository with the given implementation.
      *
-     * @param  \Rudnev\Settings\Contracts\StoreContract $store
-     * @return \Rudnev\Settings\Repository
+     * @param  \Poseso\Settings\Contracts\StoreContract $store
+     * @return \Poseso\Settings\Repository
      */
     public function repository(StoreContract $store)
     {
@@ -220,9 +220,9 @@ class SettingsManager implements FactoryContract
     /**
      * Wrap the store in the cache decorator.
      *
-     * @param \Rudnev\Settings\Contracts\StoreContract $store
+     * @param \Poseso\Settings\Contracts\StoreContract $store
      * @param array $config
-     * @return \Rudnev\Settings\Cache\CacheDecorator|\Rudnev\Settings\Contracts\StoreContract
+     * @return \Poseso\Settings\Cache\CacheDecorator|\Poseso\Settings\Contracts\StoreContract
      */
     protected function makeCacheWrapper(StoreContract $store, array $config = [])
     {
@@ -236,7 +236,7 @@ class SettingsManager implements FactoryContract
     /**
      * Get the first level cache instance.
      *
-     * @return \Rudnev\Settings\Cache\L1\FirstLevelCache
+     * @return \Poseso\Settings\Cache\L1\FirstLevelCache
      */
     public function getFirstLevelCache(): FirstLevelCache
     {
@@ -246,9 +246,9 @@ class SettingsManager implements FactoryContract
     /**
      * Get the second level cache instance.
      *
-     * @param \Rudnev\Settings\Contracts\StoreContract|string $store
+     * @param \Poseso\Settings\Contracts\StoreContract|string $store
      * @param array|null $config
-     * @return \Rudnev\Settings\Cache\L2\SecondLevelCache
+     * @return \Poseso\Settings\Cache\L2\SecondLevelCache
      */
     public function getSecondLevelCache($store, array $config = null): SecondLevelCache
     {

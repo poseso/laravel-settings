@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Stores;
+namespace Poseso\Settings\Stores;
 
 use Illuminate\Support\Arr;
-use Rudnev\Settings\Scopes\Scope;
-use Rudnev\Settings\Contracts\StoreContract;
+use Poseso\Settings\Scopes\Scope;
+use Poseso\Settings\Contracts\StoreContract;
 
 class ArrayStore implements StoreContract
 {
@@ -20,7 +20,7 @@ class ArrayStore implements StoreContract
     /**
      * The scope.
      *
-     * @var \Rudnev\Settings\Scopes\Scope
+     * @var \Poseso\Settings\Scopes\Scope
      */
     protected $scope;
 
@@ -65,7 +65,7 @@ class ArrayStore implements StoreContract
     /**
      * Get the scope.
      *
-     * @return \Rudnev\Settings\Scopes\Scope
+     * @return \Poseso\Settings\Scopes\Scope
      */
     public function getScope(): Scope
     {
@@ -75,7 +75,7 @@ class ArrayStore implements StoreContract
     /**
      * Set the scope.
      *
-     * @param \Rudnev\Settings\Scopes\Scope $scope
+     * @param \Poseso\Settings\Scopes\Scope $scope
      * @return void
      */
     public function setScope(Scope $scope): void
@@ -202,8 +202,8 @@ class ArrayStore implements StoreContract
     /**
      * Set the scope.
      *
-     * @param \Rudnev\Settings\Scopes\Scope $scope
-     * @return \Rudnev\Settings\Contracts\StoreContract
+     * @param \Poseso\Settings\Scopes\Scope $scope
+     * @return \Poseso\Settings\Contracts\StoreContract
      */
     public function scope(Scope $scope): StoreContract
     {

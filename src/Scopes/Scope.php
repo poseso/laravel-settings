@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Scopes;
+namespace Poseso\Settings\Scopes;
 
 class Scope
 {

@@ -2,10 +2,11 @@
 
 All notable changes to `laravel-settings` will be documented in this file
 
-## 1.2.0 - 2019-03-20
+## 1.1.9 - 2019-05-01
 - Support Laravel 5.8
+- re-use Rudnev code
 
-## 1.1.0 - 2018-09-30
+## 1.1.8 - 2019-01-01
 - Caching has been redesigned to cache all scopes, not just the default scope.
 - The default scope is changed to the value `default` instead of the empty string.
 - The default scope can be changed in the `config/settings.php` file.

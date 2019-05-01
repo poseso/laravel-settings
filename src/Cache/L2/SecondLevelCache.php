@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rudnev\Settings\Cache\L2;
+namespace Poseso\Settings\Cache\L2;
 
 use Illuminate\Contracts\Cache\Repository;
 
@@ -118,7 +118,7 @@ class SecondLevelCache
      * Get the cache region by name.
      *
      * @param string $name
-     * @return \Rudnev\Settings\Cache\L2\SecondLevelRegion
+     * @return \Poseso\Settings\Cache\L2\SecondLevelRegion
      */
     public function region(string $name): SecondLevelRegion
     {
@@ -133,7 +133,7 @@ class SecondLevelCache
      * Create a cache region instance.
      *
      * @param string $name
-     * @return \Rudnev\Settings\Cache\L2\SecondLevelRegion
+     * @return \Poseso\Settings\Cache\L2\SecondLevelRegion
      */
     protected function createRegion(string $name): SecondLevelRegion
     {
