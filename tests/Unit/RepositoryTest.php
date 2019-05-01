@@ -156,9 +156,9 @@ class RepositoryTest extends TestCase
     protected function getRepository()
     {
         $dispatcher = new \Illuminate\Events\Dispatcher(m::mock('Illuminate\Container\Container'));
-        $store = m::spy('Rudnev\Settings\Contracts\StoreContract');
+        $store = m::spy('Poseso\Settings\Contracts\StoreContract');
         $store->allows(['getName' => 'a-store']);
-        $repository = new \Rudnev\Settings\Repository($store);
+        $repository = new \Poseso\Settings\Repository($store);
         $repository->setEventDispatcher($dispatcher);
         return $repository;
     }

@@ -1,18 +1,18 @@
 {
-  "name": "rudnev/laravel-settings",
+  "name": "poseso/laravel-settings",
   "description": "Persistent settings for Laravel Framework",
   "keywords": [
-    "rudnev",
+    "poseso",
     "laravel",
     "settings"
   ],
-  "homepage": "https://github.com/rudnev/laravel-settings",
+  "homepage": "https://github.com/poseso/laravel-settings",
   "license": "MIT",
   "authors": [
     {
-      "name": "Andrei Rudnev",
-      "email": "andrey@rudnev.org",
-      "homepage": "https://rudnev.org",
+      "name": "Carlos Sanchez",
+      "email": "carlosmsanchez@gmail.com",
+      "homepage": "https://modocreativo.net",
       "role": "Developer"
     }
   ],
@@ -33,22 +33,22 @@
       "src/helpers.php"
     ],
     "psr-4": {
-      "Rudnev\\Settings\\": "src"
+      "Poseso\\Settings\\": "src"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Rudnev\\Settings\\ServiceProvider"
+        "Poseso\\Settings\\ServiceProvider"
       ],
       "aliases": {
-        "Settings": "Rudnev\\Settings\\Facades\\SettingsFacade"
+        "Settings": "Poseso\\Settings\\Facades\\SettingsFacade"
       }
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Rudnev\\Settings\\Tests\\": "tests"
+      "Poseso\\Settings\\Tests\\": "tests"
     }
   },
   "scripts": {

@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="minor fix on DatabaseStore">
+    <list default="true" id="8fa9bddc-7022-424a-bd54-a27e9b708b2c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" afterPath="$PROJECT_DIR$/CHANGELOG.md" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/config/settings.php" afterPath="$PROJECT_DIR$/config/settings.php" />
-      <change beforePath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" afterPath="$PROJECT_DIR$/src/Cache/CacheDecorator.php" />
-      <change beforePath="$PROJECT_DIR$/src/Cache/L1/FirstLevelCache.php" afterPath="$PROJECT_DIR$/src/Cache/L1/FirstLevelCache.php" />
-      <change beforePath="$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php" afterPath="$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php" />
-      <change beforePath="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" afterPath="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" />
-      <change beforePath="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" afterPath="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/ClearCache.php" afterPath="$PROJECT_DIR$/src/Commands/ClearCache.php" />
-      <change beforePath="$PROJECT_DIR$/src/Contracts/FactoryContract.php" afterPath="$PROJECT_DIR$/src/Contracts/FactoryContract.php" />
-      <change beforePath="$PROJECT_DIR$/src/Contracts/RepositoryContract.php" afterPath="$PROJECT_DIR$/src/Contracts/RepositoryContract.php" />
-      <change beforePath="$PROJECT_DIR$/src/Contracts/StoreContract.php" afterPath="$PROJECT_DIR$/src/Contracts/StoreContract.php" />
-      <change beforePath="$PROJECT_DIR$/src/Events/AllSettingsReceived.php" afterPath="$PROJECT_DIR$/src/Events/AllSettingsReceived.php" />
-      <change beforePath="$PROJECT_DIR$/src/Events/AllSettingsRemoved.php" afterPath="$PROJECT_DIR$/src/Events/AllSettingsRemoved.php" />
-      <change beforePath="$PROJECT_DIR$/src/Events/PropertyMissed.php" afterPath="$PROJECT_DIR$/src/Events/PropertyMissed.php" />
-      <change beforePath="$PROJECT_DIR$/src/Events/PropertyReceived.php" afterPath="$PROJECT_DIR$/src/Events/PropertyReceived.php" />
-      <change beforePath="$PROJECT_DIR$/src/Events/PropertyRemoved.php" afterPath="$PROJECT_DIR$/src/Events/PropertyRemoved.php" />
-      <change beforePath="$PROJECT_DIR$/src/Events/PropertyWritten.php" afterPath="$PROJECT_DIR$/src/Events/PropertyWritten.php" />
-      <change beforePath="$PROJECT_DIR$/src/Events/StoreEvent.php" afterPath="$PROJECT_DIR$/src/Events/StoreEvent.php" />
-      <change beforePath="$PROJECT_DIR$/src/Facades/SettingsFacade.php" afterPath="$PROJECT_DIR$/src/Facades/SettingsFacade.php" />
-      <change beforePath="$PROJECT_DIR$/src/Repository.php" afterPath="$PROJECT_DIR$/src/Repository.php" />
-      <change beforePath="$PROJECT_DIR$/src/Scopes/EntityScope.php" afterPath="$PROJECT_DIR$/src/Scopes/EntityScope.php" />
-      <change beforePath="$PROJECT_DIR$/src/Scopes/Scope.php" afterPath="$PROJECT_DIR$/src/Scopes/Scope.php" />
-      <change beforePath="$PROJECT_DIR$/src/ServiceProvider.php" afterPath="$PROJECT_DIR$/src/ServiceProvider.php" />
-      <change beforePath="$PROJECT_DIR$/src/SettingsManager.php" afterPath="$PROJECT_DIR$/src/SettingsManager.php" />
-      <change beforePath="$PROJECT_DIR$/src/Stores/ArrayStore.php" afterPath="$PROJECT_DIR$/src/Stores/ArrayStore.php" />
-      <change beforePath="$PROJECT_DIR$/src/Stores/DatabaseStore.php" afterPath="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
-      <change beforePath="$PROJECT_DIR$/src/Structures/Container.php" afterPath="$PROJECT_DIR$/src/Structures/Container.php" />
-      <change beforePath="$PROJECT_DIR$/src/Traits/HasSettings.php" afterPath="$PROJECT_DIR$/src/Traits/HasSettings.php" />
-      <change beforePath="$PROJECT_DIR$/src/helpers.php" afterPath="$PROJECT_DIR$/src/helpers.php" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/RepositoryTest.php" afterPath="$PROJECT_DIR$/tests/Unit/RepositoryTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -96,13 +67,13 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <first_editor relative-caret-position="437">
+                <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -112,13 +83,39 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RepositoryTest.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Unit/RepositoryTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="164" column="1" lean-forward="true" selection-start-line="164" selection-start-column="1" selection-end-line="164" selection-end-column="1" />
+              <folding>
+                <element signature="e#46#63#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>illuminate/support</find>
+      <find>Rudnev</find>
       <find>rud</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Poseso</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
@@ -132,45 +129,54 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/helpers.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/Traits/HasSettings.php" />
-        <option value="$PROJECT_DIR$/tests/Integration/TestCase.php" />
         <option value="$PROJECT_DIR$/tests/Integration/ServiceProviderTest.php" />
-        <option value="$PROJECT_DIR$/tests/Integration/Traits/HasSettingsTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/CacheTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/EventSubscriberTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Structures/ContainerTest.php" />
         <option value="$PROJECT_DIR$/config/settings.php" />
         <option value="$PROJECT_DIR$/database/migrations/create_settings_table.stub" />
-        <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelCache.php" />
-        <option value="$PROJECT_DIR$/src/Events/StoreEvent.php" />
-        <option value="$PROJECT_DIR$/src/Repository.php" />
-        <option value="$PROJECT_DIR$/src/Scopes/EntityScope.php" />
-        <option value="$PROJECT_DIR$/src/Scopes/Scope.php" />
-        <option value="$PROJECT_DIR$/src/SettingsManager.php" />
-        <option value="$PROJECT_DIR$/src/Stores/ArrayStore.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelCacheTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelRegionTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelCacheTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/EventsTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/RepositoryTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/SettingsManagerTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Stores/ArrayStoreTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Stores/DatabaseStoreTest.php" />
-        <option value="$PROJECT_DIR$/src/Commands/ClearCache.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelCache.php" />
         <option value="$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php" />
         <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php" />
         <option value="$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php" />
         <option value="$PROJECT_DIR$/src/Cache/CacheDecorator.php" />
-        <option value="$PROJECT_DIR$/src/Structures/Container.php" />
+        <option value="$PROJECT_DIR$/src/Commands/ClearCache.php" />
+        <option value="$PROJECT_DIR$/src/Contracts/FactoryContract.php" />
+        <option value="$PROJECT_DIR$/src/Contracts/RepositoryContract.php" />
         <option value="$PROJECT_DIR$/src/Contracts/StoreContract.php" />
+        <option value="$PROJECT_DIR$/src/Events/AllSettingsReceived.php" />
+        <option value="$PROJECT_DIR$/src/Events/AllSettingsRemoved.php" />
+        <option value="$PROJECT_DIR$/src/Events/PropertyMissed.php" />
+        <option value="$PROJECT_DIR$/src/Events/PropertyReceived.php" />
+        <option value="$PROJECT_DIR$/src/Events/PropertyRemoved.php" />
+        <option value="$PROJECT_DIR$/src/Events/PropertyWritten.php" />
+        <option value="$PROJECT_DIR$/src/Events/StoreEvent.php" />
+        <option value="$PROJECT_DIR$/src/Facades/SettingsFacade.php" />
+        <option value="$PROJECT_DIR$/src/Scopes/EntityScope.php" />
+        <option value="$PROJECT_DIR$/src/Scopes/Scope.php" />
+        <option value="$PROJECT_DIR$/src/Stores/ArrayStore.php" />
         <option value="$PROJECT_DIR$/src/Stores/DatabaseStore.php" />
+        <option value="$PROJECT_DIR$/src/Structures/Container.php" />
+        <option value="$PROJECT_DIR$/src/Traits/HasSettings.php" />
+        <option value="$PROJECT_DIR$/src/helpers.php" />
+        <option value="$PROJECT_DIR$/src/Repository.php" />
         <option value="$PROJECT_DIR$/src/ServiceProvider.php" />
+        <option value="$PROJECT_DIR$/src/SettingsManager.php" />
+        <option value="$PROJECT_DIR$/tests/Integration/Traits/HasSettingsTest.php" />
+        <option value="$PROJECT_DIR$/tests/Integration/TestCase.php" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/tests/Unit/RepositoryTest.php" />
       </list>
     </option>
   </component>
@@ -201,17 +207,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="laravel-settings" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-settings" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -227,8 +223,13 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="laravel-settings" type="cbb8eebc:String" user="laravel-settings" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="Cache" type="cbb8eebc:String" user="Cache" />
+              <item name="tests" type="cbb8eebc:String" user="tests" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="laravel-settings" type="cbb8eebc:String" user="laravel-settings" />
+              <item name="tests" type="cbb8eebc:String" user="tests" />
+              <item name="Unit" type="cbb8eebc:String" user="Unit" />
             </path>
           </expand>
           <select />
@@ -286,7 +287,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="laravel-settings" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-settings" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -343,6 +354,7 @@
       <workItem from="1538958490482" duration="50000" />
       <workItem from="1539612147569" duration="104000" />
       <workItem from="1539612628411" duration="792000" />
+      <workItem from="1556729506074" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="Cache and Scopes improvements.">
       <created>1538939439264</created>
@@ -470,52 +482,52 @@
       <option name="project" value="LOCAL" />
       <updated>1538955758456</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="re-use rudnev code">
+      <created>1556725085815</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1556725085815</updated>
+    </task>
+    <task id="LOCAL-00020" summary="re-use rudnev code">
+      <created>1556726774686</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1556726774686</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23777000" />
+    <option name="totallyTimeSpent" value="25639000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1178" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="1058" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="JWT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSON Viewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSON Utils" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="JWT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Json Parser" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="JSON Viewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27103302" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2736954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JSON Utils" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Json Parser" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +554,8 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="minor fix" />
     <MESSAGE value="minor fix on DatabaseStore" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fix on DatabaseStore" />
+    <MESSAGE value="re-use rudnev code" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-use rudnev code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -553,277 +566,327 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Integration/TestCase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Integration/ServiceProviderTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Integration/Traits/HasSettingsTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2001">
-          <caret line="92" column="6" lean-forward="false" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
+          <folding>
+            <element signature="e#35#75#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/CacheTest.php" />
     <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/EventSubscriberTest.php" />
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Structures/ContainerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Traits/HasSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="81" column="52" lean-forward="true" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/Cache.php" />
     <entry file="file://$PROJECT_DIR$/config/settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="105" column="2" lean-forward="false" selection-start-line="105" selection-start-column="2" selection-end-line="105" selection-end-column="2" />
+        <state relative-caret-position="-587">
+          <caret line="86" column="32" lean-forward="false" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/Cache.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/create_settings_table.stub">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+        <state relative-caret-position="432">
+          <caret line="71" column="1" lean-forward="true" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cache/L1/FirstLevelCache.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="552">
+          <caret line="24" column="64" lean-forward="true" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Events/StoreEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="415" column="1" lean-forward="true" selection-start-line="415" selection-start-column="1" selection-end-line="415" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scopes/EntityScope.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scopes/Scope.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="278" column="1" lean-forward="true" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stores/ArrayStore.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="155" column="22" lean-forward="true" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelCacheTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelRegionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="101" column="1" lean-forward="true" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelCacheTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="92" column="1" lean-forward="true" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/EventsTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="102" column="1" lean-forward="true" selection-start-line="102" selection-start-column="1" selection-end-line="102" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/RepositoryTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="164" column="1" lean-forward="true" selection-start-line="164" selection-start-column="1" selection-end-line="164" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/SettingsManagerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="211" column="1" lean-forward="true" selection-start-line="211" selection-start-column="1" selection-end-line="211" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Stores/ArrayStoreTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="107" column="1" lean-forward="true" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Stores/DatabaseStoreTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7498">
-          <caret line="332" column="1" lean-forward="false" selection-start-line="332" selection-start-column="1" selection-end-line="332" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Structures/Container.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2277">
-          <caret line="100" column="1" lean-forward="false" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Contracts/StoreContract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2461">
-          <caret line="107" column="1" lean-forward="false" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3036">
-          <caret line="141" column="49" lean-forward="false" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3887">
-          <caret line="172" column="1" lean-forward="false" selection-start-line="172" selection-start-column="1" selection-end-line="172" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Commands/ClearCache.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="47" column="1" lean-forward="false" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4255">
-          <caret line="186" column="1" lean-forward="false" selection-start-line="186" selection-start-column="1" selection-end-line="186" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4163">
-          <caret line="181" column="1" lean-forward="false" selection-start-line="181" selection-start-column="1" selection-end-line="181" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7981">
-          <caret line="348" column="1" lean-forward="false" selection-start-line="348" selection-start-column="1" selection-end-line="348" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="388" column="1" lean-forward="false" selection-start-line="388" selection-start-column="1" selection-end-line="388" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="83" column="1" lean-forward="false" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="345">
-            <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <first_editor relative-caret-position="343">
+            <caret line="354" column="0" lean-forward="true" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/L1/FirstLevelRegion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelCache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/L2/SecondLevelRegion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/CacheDecorator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Commands/ClearCache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Contracts/FactoryContract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Contracts/RepositoryContract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Contracts/StoreContract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/AllSettingsReceived.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/AllSettingsRemoved.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/PropertyMissed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/PropertyReceived.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/StoreEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="47" column="44" lean-forward="true" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/PropertyWritten.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Events/PropertyRemoved.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Facades/SettingsFacade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scopes/EntityScope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scopes/Scope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stores/ArrayStore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding>
+            <element signature="e#68#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stores/DatabaseStore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Structures/Container.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits/HasSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#35#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SettingsManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/Traits/HasSettingsTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/ServiceProviderTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Integration/TestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelCacheTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L1/FirstLevelRegionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelCacheTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/L2/SecondLevelRegionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Cache/CacheDecoratorTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Stores/ArrayStoreTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Stores/DatabaseStoreTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Structures/ContainerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/EventsTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/SettingsManagerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -831,20 +894,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <first_editor relative-caret-position="437">
+            <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
             <folding />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/RepositoryTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="164" column="1" lean-forward="true" selection-start-line="164" selection-start-column="1" selection-end-line="164" selection-end-column="1" />
+          <folding>
+            <element signature="e#46#63#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
