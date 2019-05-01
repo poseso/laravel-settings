@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Poseso\Settings\Scopes;
+namespace Rudnev\Settings\Scopes;
 
 class Scope
 {
@@ -12,6 +12,7 @@ class Scope
      * @var string
      */
     public $hash;
+
     /**
      * Scope constructor.
      *

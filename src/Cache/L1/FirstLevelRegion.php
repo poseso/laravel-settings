@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Poseso\Settings\Cache\L1;
+namespace Rudnev\Settings\Cache\L1;
 
 use Closure;
 use Illuminate\Support\Arr;
@@ -15,18 +15,21 @@ class FirstLevelRegion
      * @var string
      */
     protected $name;
+
     /**
      * The array of cached items.
      *
      * @var array
      */
     protected $data = [];
+
     /**
      * All the items is cached or not.
      *
      * @var bool
      */
     protected $incomplete = true;
+
     /**
      * Region constructor.
      *
@@ -37,6 +40,7 @@ class FirstLevelRegion
     {
         $this->name = $name;
     }
+
     /**
      * Get the name of this region.
      *
@@ -46,6 +50,7 @@ class FirstLevelRegion
     {
         return $this->name;
     }
+
     /**
      * Set the name of this region.
      *
@@ -56,6 +61,7 @@ class FirstLevelRegion
     {
         $this->name = $name;
     }
+
     /**
      * Determine if an item exists.
      *
@@ -66,6 +72,7 @@ class FirstLevelRegion
     {
         return Arr::has($this->data, $key);
     }
+
     /**
      * Retrieve an item from the cache by key.
      *
@@ -78,11 +85,14 @@ class FirstLevelRegion
         if ($this->has($key)) {
             return Arr::get($this->data, $key);
         }
+
         if ($callback && ! is_null($value = $callback($key))) {
             $this->put($key, $value);
         }
+
         return $value ?? null;
     }
+
     /**
      * Retrieve multiple items from the cache by key.
      *
@@ -96,6 +106,7 @@ class FirstLevelRegion
     {
         $result = [];
         $notFound = [];
+
         foreach ($keys as $key) {
             if ($this->has($key)) {
                 $result[$key] = Arr::get($this->data, $key);
@@ -104,15 +115,20 @@ class FirstLevelRegion
                 $notFound[] = $key;
             }
         }
+
         if ($callback && ! empty($notFound)) {
             $notFound = array_filter($callback($notFound), function ($value) {
                 return ! is_null($value);
             });
+
             $this->putMultiple($notFound);
+
             $result = array_merge($result, $notFound);
         }
+
         return $result;
     }
+
     /**
      * Retrieve all items from the cache.
      *
@@ -123,13 +139,17 @@ class FirstLevelRegion
     {
         if ($this->incomplete && $callback) {
             $values = $callback();
+
             if (is_array($values)) {
                 $this->data = $values;
             }
+
             $this->incomplete = false;
         }
+
         return $this->data;
     }
+
     /**
      * Store an item in the cache.
      *
@@ -141,6 +161,7 @@ class FirstLevelRegion
     {
         Arr::set($this->data, $key, $value);
     }
+
     /**
      * Store multiple items in the cache.
      *
@@ -153,6 +174,7 @@ class FirstLevelRegion
             $this->put($key, $value);
         }
     }
+
     /**
      * Remove an item from the cache.
      *
@@ -163,6 +185,7 @@ class FirstLevelRegion
     {
         Arr::forget($this->data, $key);
     }
+
     /**
      * Remove multiple items from the cache.
      *
@@ -175,6 +198,7 @@ class FirstLevelRegion
             $this->forget($key);
         }
     }
+
     /**
      * Remove all items from the cache.
      *

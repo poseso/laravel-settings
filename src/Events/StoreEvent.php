@@ -1,8 +1,10 @@
 <?php
 
-namespace Poseso\Settings\Events;
+declare(strict_types=1);
 
-use Poseso\Settings\Scopes\Scope;
+namespace Rudnev\Settings\Events;
+
+use Rudnev\Settings\Scopes\Scope;
 
 class StoreEvent
 {
@@ -16,7 +18,7 @@ class StoreEvent
     /**
      * The scope.
      *
-     * @var \Poseso\Settings\Scopes\Scope
+     * @var \Rudnev\Settings\Scopes\Scope
      */
     protected $scope;
 
@@ -25,7 +27,7 @@ class StoreEvent
      *
      * @return string
      */
-    public function getStoreName()
+    public function getStoreName(): string
     {
         return $this->storeName;
     }
@@ -35,7 +37,7 @@ class StoreEvent
      *
      * @param string $storeName
      */
-    public function setStoreName($storeName)
+    public function setStoreName(string $storeName)
     {
         $this->storeName = $storeName;
     }
@@ -43,9 +45,9 @@ class StoreEvent
     /**
      * Get the scope.
      *
-     * \Poseso\Settings\Scopes\Scope
+     * @return \Rudnev\Settings\Scopes\Scope
      */
-    public function getScope()
+    public function getScope(): Scope
     {
         return $this->scope;
     }
@@ -53,7 +55,7 @@ class StoreEvent
     /**
      * Set the scope.
      *
-     * \Poseso\Settings\Scopes\Scope $scope
+     * @param \Rudnev\Settings\Scopes\Scope $scope
      */
     public function setScope(Scope $scope)
     {

@@ -2,60 +2,65 @@
 
 declare(strict_types=1);
 
-namespace Poseso\Settings;
+namespace Rudnev\Settings;
 
 use ArrayAccess;
 use Illuminate\Support\Arr;
-use Poseso\Settings\Events\StoreEvent;
+use Rudnev\Settings\Scopes\Scope;
+use Rudnev\Settings\Events\StoreEvent;
+use Rudnev\Settings\Scopes\EntityScope;
 use Illuminate\Support\Traits\Macroable;
-use Poseso\Settings\Events\PropertyMissed;
-use Poseso\Settings\Events\PropertyRemoved;
-use Poseso\Settings\Events\PropertyWritten;
-use Poseso\Settings\Contracts\StoreContract;
-use Poseso\Settings\Events\PropertyReceived;
-use Poseso\Settings\Events\AllSettingsRemoved;
-use Poseso\Settings\Events\AllSettingsReceived;
-use Poseso\Settings\Contracts\RepositoryContract;
+use Rudnev\Settings\Events\PropertyMissed;
+use Rudnev\Settings\Events\PropertyRemoved;
+use Rudnev\Settings\Events\PropertyWritten;
+use Rudnev\Settings\Contracts\StoreContract;
+use Rudnev\Settings\Events\PropertyReceived;
+use Rudnev\Settings\Events\AllSettingsRemoved;
+use Rudnev\Settings\Events\AllSettingsReceived;
+use Rudnev\Settings\Contracts\RepositoryContract;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
-use Poseso\Settings\Scopes\EntityScope;
-use Poseso\Settings\Scopes\Scope;
 
 /**
- * @mixin \Poseso\Settings\Contracts\StoreContract
+ * @mixin \Rudnev\Settings\Contracts\StoreContract
  */
 class Repository implements ArrayAccess, RepositoryContract
 {
     use Macroable {
         __call as macroCall;
     }
+
     /**
      * The settings store instance.
      *
-     * @var \Poseso\Settings\Contracts\StoreContract
+     * @var \Rudnev\Settings\Contracts\StoreContract
      */
     protected $store;
+
     /**
      * The scope.
      *
-     * @var \Poseso\Settings\Scopes\Scope
+     * @var \Rudnev\Settings\Scopes\Scope
      */
     protected $scope;
+
     /**
      * The event dispatcher instance.
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
+
     /**
      * Default settings.
      *
      * @var array
      */
     protected $default = [];
+
     /**
      * Create a new settings repository instance.
      *
-     * @param \Poseso\Settings\Contracts\StoreContract $store
+     * @param \Rudnev\Settings\Contracts\StoreContract $store
      * @return void
      */
     public function __construct(StoreContract $store)
@@ -63,34 +68,38 @@ class Repository implements ArrayAccess, RepositoryContract
         $this->store = $store;
         $this->scope = new Scope();
     }
+
     /**
      * Get the settings store instance.
      *
-     * @return \Poseso\Settings\Contracts\StoreContract
+     * @return \Rudnev\Settings\Contracts\StoreContract
      */
     public function getStore(): StoreContract
     {
         return $this->store;
     }
+
     /**
      * Set the settings store implementation.
      *
-     * @param \Poseso\Settings\Contracts\StoreContract $store
+     * @param \Rudnev\Settings\Contracts\StoreContract $store
      * @return void
      */
     public function setStore(StoreContract $store): void
     {
         $this->store = $store->scope($this->scope);
     }
+
     /**
      * Get the scope.
      *
-     * @return \Poseso\Settings\Scopes\Scope
+     * @return \Rudnev\Settings\Scopes\Scope
      */
     public function getScope(): Scope
     {
         return $this->scope;
     }
+
     /**
      * Set the scope.
      *
@@ -104,8 +113,10 @@ class Repository implements ArrayAccess, RepositoryContract
         } else {
             $this->scope = new Scope((string) $scope);
         }
+
         $this->store = $this->store->scope($this->scope);
     }
+
     /**
      * Get the event dispatcher instance.
      *
@@ -115,6 +126,7 @@ class Repository implements ArrayAccess, RepositoryContract
     {
         return $this->events;
     }
+
     /**
      * Set the event dispatcher implementation.
      *
@@ -125,6 +137,7 @@ class Repository implements ArrayAccess, RepositoryContract
     {
         $this->events = $dispatcher;
     }
+
     /**
      * Get the default value.
      *
@@ -136,8 +149,10 @@ class Repository implements ArrayAccess, RepositoryContract
         if (isset($key)) {
             return value(Arr::get($this->default, $key));
         }
+
         return $this->default;
     }
+
     /**
      * Set the default value.
      *
@@ -153,6 +168,7 @@ class Repository implements ArrayAccess, RepositoryContract
             $this->default[$key] = $value;
         }
     }
+
     /**
      * Remove the default value.
      *
@@ -163,26 +179,32 @@ class Repository implements ArrayAccess, RepositoryContract
     {
         if (is_null($key)) {
             $this->default = [];
+
             return;
         }
+
         if (is_array($key)) {
             foreach ($key as $item) {
                 unset($this->default[$item]);
             }
+
             return;
         }
+
         unset($this->default[$key]);
     }
+
     /**
      * Determine if an item exists in the settings store.
      *
      * @param string $key
      * @return bool
      */
-    public function has($key): bool
+    public function has(string $key): bool
     {
         return $this->store->has($key);
     }
+
     /**
      * Retrieve an item from the settings store by key.
      *
@@ -195,18 +217,23 @@ class Repository implements ArrayAccess, RepositoryContract
         if (is_iterable($key)) {
             return $this->getMultiple($key);
         }
+
         $value = $this->store->get($key);
+
         // If we could not find the settings value, we will fire the missed event and get
         // the default value for this settings value. This default could be a callback
         // so we will execute the value function which will resolve it if needed.
         if (is_null($value)) {
             $this->event(new PropertyMissed($key));
+
             $value = isset($default) ? value($default) : $this->getDefault($key);
         } else {
             $this->event(new PropertyReceived($key, $value));
         }
+
         return $value;
     }
+
     /**
      * Retrieve multiple items from the settings store by key.
      *
@@ -220,16 +247,22 @@ class Repository implements ArrayAccess, RepositoryContract
         $keyList = collect($keys)->map(function ($value, $key) {
             return is_string($key) ? $key : $value;
         })->values()->all();
+
         $values = $this->store->getMultiple($keyList);
+
         return collect($values)->map(function ($value, $key) use ($keys) {
             if (is_null($value)) {
                 $this->event(new PropertyMissed($key));
+
                 return isset($keys[$key]) ? value($keys[$key]) : $this->getDefault($key);
             }
+
             $this->event(new PropertyReceived($key, $value));
+
             return $value;
         })->all();
     }
+
     /**
      * Get all of the settings items.
      *
@@ -238,9 +271,12 @@ class Repository implements ArrayAccess, RepositoryContract
     public function all(): array
     {
         $data = $this->store->all();
+
         $this->event(new AllSettingsReceived());
+
         return $data;
     }
+
     /**
      * Store an item in the settings store.
      *
@@ -253,10 +289,14 @@ class Repository implements ArrayAccess, RepositoryContract
         if (is_iterable($key)) {
             return $this->setMultiple($key);
         }
+
         $this->store->set($key, $value);
+
         $this->event(new PropertyWritten($key, $value));
+
         return $this;
     }
+
     /**
      * Store multiple items in the settings store.
      *
@@ -266,11 +306,14 @@ class Repository implements ArrayAccess, RepositoryContract
     protected function setMultiple(iterable $values): self
     {
         $this->store->setMultiple($values);
+
         foreach ($values as $key => $value) {
             $this->event(new PropertyWritten($key, $value));
         }
+
         return $this;
     }
+
     /**
      * Remove an item from the settings store.
      *
@@ -282,12 +325,16 @@ class Repository implements ArrayAccess, RepositoryContract
         if (is_iterable($key)) {
             return $this->forgetMultiple($key);
         }
+
         $success = $this->store->forget($key);
+
         if ($success) {
             $this->event(new PropertyRemoved($key));
         }
+
         return $success;
     }
+
     /**
      * Remove multiple items from the settings store.
      *
@@ -297,13 +344,16 @@ class Repository implements ArrayAccess, RepositoryContract
     protected function forgetMultiple(iterable $keys): bool
     {
         $success = $this->store->forgetMultiple($keys);
+
         if ($success) {
             foreach ($keys as $key) {
                 $this->event(new PropertyRemoved($key));
             }
         }
+
         return $success;
     }
+
     /**
      * Remove all items from the settings store.
      *
@@ -312,26 +362,34 @@ class Repository implements ArrayAccess, RepositoryContract
     public function flush(): bool
     {
         $success = $this->store->flush();
+
         if ($success) {
             $this->event(new AllSettingsRemoved());
         }
+
         return $success;
     }
+
     /**
      * Set the scope.
      *
      * @param mixed $scope
      * @param array $options
-     * @return \Poseso\Settings\Contracts\RepositoryContract
+     * @return \Rudnev\Settings\Contracts\RepositoryContract
      */
     public function scope($scope, $options = null): RepositoryContract
     {
         $repo = clone $this;
+
         $repo->setScope($scope);
+
         $repo->forgetDefault();
+
         $repo->setDefault($options['default'] ?? []);
+
         return $repo;
     }
+
     /**
      * Fire an event for this settings instance.
      *
@@ -343,12 +401,15 @@ class Repository implements ArrayAccess, RepositoryContract
         if (! isset($this->events)) {
             return;
         }
+
         if ($event instanceof StoreEvent) {
             $event->setStoreName($this->store->getName());
             $event->setScope($this->scope);
         }
+
         $this->events->dispatch($event);
     }
+
     /**
      * Determine if a value exists.
      *
@@ -359,6 +420,7 @@ class Repository implements ArrayAccess, RepositoryContract
     {
         return $this->has($key);
     }
+
     /**
      * Retrieve an item from the settings store by key.
      *
@@ -369,6 +431,7 @@ class Repository implements ArrayAccess, RepositoryContract
     {
         return $this->get($key);
     }
+
     /**
      * Store an item in the settings store.
      *
@@ -380,6 +443,7 @@ class Repository implements ArrayAccess, RepositoryContract
     {
         $this->set($key, $value);
     }
+
     /**
      * Remove an item from the settings store.
      *
@@ -390,6 +454,7 @@ class Repository implements ArrayAccess, RepositoryContract
     {
         $this->forget($key);
     }
+
     /**
      * Handle dynamic calls into macros or pass missing methods to the store.
      *
@@ -402,8 +467,10 @@ class Repository implements ArrayAccess, RepositoryContract
         if (static::hasMacro($method)) {
             return $this->macroCall($method, $parameters);
         }
+
         return $this->store->$method(...$parameters);
     }
+
     /**
      * Clone settings repository instance.
      *

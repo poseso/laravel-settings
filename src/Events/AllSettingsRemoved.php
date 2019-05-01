@@ -1,6 +1,6 @@
 <?php
 
-namespace Poseso\Settings\Events;
+namespace Rudnev\Settings\Events;
 
 class AllSettingsRemoved extends StoreEvent
 {

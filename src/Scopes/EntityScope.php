@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Poseso\Settings\Scopes;
+namespace Rudnev\Settings\Scopes;
 
 class EntityScope extends Scope
 {
@@ -12,12 +12,14 @@ class EntityScope extends Scope
      * @var string
      */
     public $entityClass;
+
     /**
      * The identifier of entity.
      *
      * @var string
      */
     public $entityId;
+
     /**
      * EntityScope constructor.
      *

@@ -1,16 +1,16 @@
 <?php
 
-namespace Poseso\Settings\Traits;
+namespace Rudnev\Settings\Traits;
 
-use ArrayObject;
-use Poseso\Settings\Structures\Container;
+use Illuminate\Support\Arr;
+use Rudnev\Settings\Structures\Container;
 
 trait HasSettings
 {
     /**
      * The settings repository instance.
      *
-     * @var \Poseso\Settings\Contracts\RepositoryContract
+     * @var \Rudnev\Settings\Contracts\RepositoryContract
      */
     protected $settingsRepo;
 
@@ -41,8 +41,8 @@ trait HasSettings
                 return;
             }
 
-            $old = array_dot((array) $model->settingsOriginal);
-            $new = array_dot((array) $model->settingsAttribute);
+            $old = Arr::dot((array) $model->settingsOriginal);
+            $new = Arr::dot((array) $model->settingsAttribute);
 
             // removing settings
             if (! empty($old)) {
@@ -113,7 +113,7 @@ trait HasSettings
     /**
      * @param null $key
      * @param null $default
-     * @return mixed|\Poseso\Settings\Contracts\RepositoryContract
+     * @return mixed|\Rudnev\Settings\Contracts\RepositoryContract
      */
     public function settings($key = null, $default = null)
     {

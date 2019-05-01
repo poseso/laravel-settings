@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Poseso\Settings\Structures;
+namespace Rudnev\Settings\Structures;
 
-use ArrayObject;
 use TypeError;
+use ArrayObject;
 
 class Container extends ArrayObject
 {
@@ -15,6 +15,7 @@ class Container extends ArrayObject
      * @var array
      */
     protected $default = [];
+
     /**
      * Get the default value.
      *
@@ -26,8 +27,10 @@ class Container extends ArrayObject
         if (isset($key)) {
             return value(array_get($this->default, $key));
         }
+
         return $this->default;
     }
+
     /**
      * Set the default value.
      *
@@ -43,6 +46,7 @@ class Container extends ArrayObject
             $this->default[$key] = $value;
         }
     }
+
     /**
      * Remove the default value.
      *
@@ -53,16 +57,21 @@ class Container extends ArrayObject
     {
         if (is_null($key)) {
             $this->default = [];
+
             return;
         }
+
         if (is_array($key)) {
             foreach ($key as $item) {
                 unset($this->default[$item]);
             }
+
             return;
         }
+
         unset($this->default[$key]);
     }
+
     /**
      * Retrieve an item by key.
      *
@@ -72,8 +81,10 @@ class Container extends ArrayObject
     public function offsetGet($key)
     {
         $this->checkKeyType($key);
+
         return $this->offsetExists($key) ? parent::offsetGet($key) : $this->getDefault($key);
     }
+
     /**
      * Store an item.
      *
@@ -84,8 +95,10 @@ class Container extends ArrayObject
     public function offsetSet($key, $value)
     {
         $this->checkKeyType($key);
+
         parent::offsetSet($key, $value);
     }
+
     /**
      * Check the type of key.
      *

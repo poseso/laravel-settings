@@ -1,54 +1,54 @@
 {
-  "name": "poseso/laravel-settings",
+  "name": "rudnev/laravel-settings",
   "description": "Persistent settings for Laravel Framework",
   "keywords": [
-    "poseso",
+    "rudnev",
     "laravel",
     "settings"
   ],
-  "homepage": "https://github.com/poseso/laravel-settings",
+  "homepage": "https://github.com/rudnev/laravel-settings",
   "license": "MIT",
   "authors": [
     {
-      "name": "Carlos Sanchez",
-      "email": "carlosmsanchez@gmail.com",
-      "homepage": "http://www.blacklyontech.com",
-      "role": "Package Developer"
+      "name": "Andrei Rudnev",
+      "email": "andrey@rudnev.org",
+      "homepage": "https://rudnev.org",
+      "role": "Developer"
     }
   ],
   "require": {
     "php": ">=7.1",
-    "illuminate/contracts": "~5.5.0|~5.6.0|~5.7.0",
-    "illuminate/database": "~5.5.0|~5.6.0|~5.7.0",
-    "illuminate/events": "~5.5.0|~5.6.0|~5.7.0",
-    "illuminate/support": "~5.5.0|~5.6.0|~5.7.0"
+    "illuminate/contracts": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+    "illuminate/database": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+    "illuminate/events": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+    "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",
-    "orchestra/testbench": "~3.6.0|~3.7.0",
-    "phpunit/phpunit": "^6.1|^7.0"
+    "orchestra/testbench": "~3.6.0|~3.7.0|~3.8.0",
+    "phpunit/phpunit": "^6.1|^7.0|^8.0"
   },
   "autoload": {
     "files": [
       "src/helpers.php"
     ],
     "psr-4": {
-      "Poseso\\Settings\\": "src"
+      "Rudnev\\Settings\\": "src"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Poseso\\Settings\\ServiceProvider"
+        "Rudnev\\Settings\\ServiceProvider"
       ],
       "aliases": {
-        "Settings": "Poseso\\Settings\\Facades\\SettingsFacade"
+        "Settings": "Rudnev\\Settings\\Facades\\SettingsFacade"
       }
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Poseso\\Settings\\Tests\\": "tests"
+      "Rudnev\\Settings\\Tests\\": "tests"
     }
   },
   "scripts": {

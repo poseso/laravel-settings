@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Poseso\Settings\Contracts;
+namespace Rudnev\Settings\Contracts;
 
-use Poseso\Settings\Scopes\Scope;
+use Rudnev\Settings\Scopes\Scope;
 
 interface StoreContract
 {
@@ -14,6 +14,7 @@ interface StoreContract
      * @return string
      */
     public function getName(): string;
+
     /**
      * Set the settings store name.
      *
@@ -21,19 +22,22 @@ interface StoreContract
      * @return void
      */
     public function setName(string $name): void;
+
     /**
      * Get the scope.
      *
-     * @return \Poseso\Settings\Scopes\Scope
+     * @return \Rudnev\Settings\Scopes\Scope
      */
     public function getScope(): Scope;
+
     /**
      * Set the scope.
      *
-     * @param \Poseso\Settings\Scopes\Scope $scope
+     * @param \Rudnev\Settings\Scopes\Scope $scope
      * @return void
      */
     public function setScope(Scope $scope): void;
+
     /**
      * Determine if an item exists in the settings store.
      *
@@ -41,6 +45,7 @@ interface StoreContract
      * @return bool
      */
     public function has(string $key): bool;
+
     /**
      * Retrieve an item from the settings store by key.
      *
@@ -48,6 +53,7 @@ interface StoreContract
      * @return mixed
      */
     public function get(string $key);
+
     /**
      * Retrieve multiple items from the settings store by key.
      *
@@ -57,12 +63,14 @@ interface StoreContract
      * @return array
      */
     public function getMultiple(iterable $keys): array;
+
     /**
      * Get all of the settings items.
      *
      * @return array
      */
     public function all(): array;
+
     /**
      * Store an item in the settings store.
      *
@@ -71,6 +79,7 @@ interface StoreContract
      * @return void
      */
     public function set(string $key, $value): void;
+
     /**
      * Store multiple items in the settings store.
      *
@@ -78,6 +87,7 @@ interface StoreContract
      * @return void
      */
     public function setMultiple(iterable $values): void;
+
     /**
      * Remove an item from the settings store.
      *
@@ -85,6 +95,7 @@ interface StoreContract
      * @return bool
      */
     public function forget(string $key): bool;
+
     /**
      * Remove multiple items from the settings store.
      *
@@ -92,17 +103,19 @@ interface StoreContract
      * @return bool
      */
     public function forgetMultiple(iterable $keys): bool;
+
     /**
      * Remove all items from the settings store.
      *
      * @return bool
      */
     public function flush(): bool;
+
     /**
      * Set the scope.
      *
-     * @param \Poseso\Settings\Scopes\Scope $scope
-     * @return \Poseso\Settings\Contracts\StoreContract
+     * @param \Rudnev\Settings\Scopes\Scope $scope
+     * @return \Rudnev\Settings\Contracts\StoreContract
      */
     public function scope(Scope $scope): self;
 }

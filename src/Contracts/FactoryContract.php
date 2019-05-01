@@ -1,6 +1,8 @@
 <?php
 
-namespace Poseso\Settings\Contracts;
+declare(strict_types=1);
+
+namespace Rudnev\Settings\Contracts;
 
 interface FactoryContract
 {
@@ -8,7 +10,7 @@ interface FactoryContract
      * Get a settings repository instance by name.
      *
      * @param  string|null $name
-     * @return \Poseso\Settings\Contracts\RepositoryContract
+     * @return \Rudnev\Settings\Contracts\RepositoryContract
      */
-    public function store($name = null);
+    public function store(string $name = null);
 }
