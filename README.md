@@ -11,7 +11,7 @@ Persistent settings for Laravel Framework
 
 ### Requirements
 
-* PHP 7.1 or higher
+* PHP 7.2 or higher
 * Laravel 5.5 or higher
 
 ### Basic usage
